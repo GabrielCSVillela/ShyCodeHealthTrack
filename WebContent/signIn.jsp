@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
 <title>Insert title here</title>
 <%@ include file ="header.jsp" %>
 </head>
@@ -21,8 +20,8 @@
         </label>
       </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      <button class="btn btn-lg btn-secondary btn-block" type="submit">Create Account</button>
-
+      <button class="btn btn-lg btn-secondary btn-block" href="createAccount.jsp">Create Account</button>
+	</form>
  <%@ include file ="footer.jsp" %>
 </body>
 </html>
