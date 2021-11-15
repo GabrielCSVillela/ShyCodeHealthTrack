@@ -1,0 +1,43 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<body>
+	<div class="container">
+		<header
+			class="d-flex justify-content-between align-items-center py-auto mb-auto border-bottom">
+			<!-- Logo e nome healthtrack -->
+			<nav class="navbar navbar-light bg-light">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="#"> <img
+						src="resources/images/logo.png" alt="" width="40" height="40"
+						class="d-inline-block align-text-bottom"> HealthTrack
+					</a>
+				</div>
+			</nav>
+			<!-- Navbar side burguer -->
+
+
+			<!-- Usuario e drop down para opcoes -->
+			<div class="dropdown text-end">
+				<a href="#"
+					class="d-block link-dark text-decoration-none dropdown-toggle"
+					id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+					<img src="resources/images/user.png" alt="mdo" width="32"
+					height="32" class="rounded-circle">
+				</a>
+				<ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1"
+					style="">
+					<li><a class="dropdown-item" href="#">New project...</a></li>
+					<li><a class="dropdown-item" href="#">Settings</a></li>
+					<li><a class="dropdown-item" href="#">Profile</a></li>
+					<li><hr class="dropdown-divider"></li>
+					<li><a class="dropdown-item" href="signIn.jsp">Sign out</a></li>
+				</ul>
+			</div>
+		</header>
+	</div>
+</body>
+</html>
