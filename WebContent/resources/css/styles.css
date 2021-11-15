@@ -35,3 +35,15 @@ html, body {
 	text-align: left;
 	background-color: #fff;
 }
+
+/* Footer */
+.below-wave {
+	background-color:#a3e1d2; 
+	height: 150px; 
+	width: 100%; 
+}
+
+.back-top {
+	float: right;
+	margin-right: 2rem;
+}
