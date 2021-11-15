@@ -1,11 +1,13 @@
 package br.com.shycode.healthtrack.bean;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class Client {
-	//Props
+	
+	//Propriedades
     /**
-     * N�mero Id
+     * Número Id
      */
     private int Id;
     
@@ -32,7 +34,7 @@ public class Client {
     /**
      *Telefone 
      */
-    private String Fone;
+    private String Phone;
     
     /**
      * Data de Nascimento
@@ -42,7 +44,12 @@ public class Client {
     /**
      * Altura
      */
-    private Float height;
+    private int height;
+    
+    /**
+     * Data
+     */
+    private Calendar DateRecord;
     
     // Construtor
     /**
@@ -51,66 +58,24 @@ public class Client {
      * @param lastName
      * @param email
      * @param password
-     * @param fone
+     * @param phone
      * @param dateOfBirth
      * @param height
      */
-    public Client(String name, String lastName, String email, String password, String fone, Date dateOfBirth,
-			Float height) {
+    public Client(String name, String lastName, String email, String password, String phone, Date dateOfBirth,
+			int height, Calendar dateRecord) {
 		super();
 		Name = name;
 		LastName = lastName;
 		Email = email;
 		Password = password;
-		Fone = fone;
+		Phone = phone;
 		DateOfBirth = dateOfBirth;
 		this.height = height;
+		DateRecord = dateRecord;
 	}
 
-    //Methods
-    /**
-     * Registra Cliente
-     */
-    public void register() {
-    	Id = 1;
-    }
-    
-    /**
-     * Remove cliente
-     */
-    public void remove() {
-    	Id = 0;
-		Name = null;
-		LastName = null;
-		Email = null;
-		Password = null;
-		Fone = null;
-		DateOfBirth = null;
-		this.height = null;
-    }
-    
-	/**
-	 * Atualiza Cliente
-	 * @param name2
-	 * @param lastName2
-	 * @param email2
-	 * @param password2
-	 * @param fone2
-	 * @param dateOfBirth2
-	 * @param height2
-	 */
-    public void update(String name2, String lastName2, String email2, String password2, String fone2, Date dateOfBirth2,
-			Float height2) {
-		Name = name2;
-		LastName = lastName2;
-		Email = email2;
-		Password = password2;
-		Fone = fone2;
-		DateOfBirth = dateOfBirth2;
-		this.height = height2;
-    }
-
-    //Gets - Sets
+	//Gets - Sets
     public int getId() {
         return Id;
     }
@@ -154,17 +119,27 @@ public class Client {
         Password = password;
     }
 
-    public String getFone() {
-        return Fone;
-    }
-    public void setFone(String fone) {
-        Fone = fone;
+    public String getPhone() {
+        return Phone;
     }
     
-    public float getHeight() {
+    public void setPhone(String phone) {
+    	Phone = phone;
+    }
+    
+    public int getHeight() {
         return height;
     }
-    public void setHeight(float height) {
+    
+    public void setHeight(int height) {
         this.height = height;
     }
+    
+    public Calendar getDateRecord() {
+		return DateRecord;
+	}
+
+	public void setDateRecord(Calendar dateRecord) {
+		DateRecord = dateRecord;
+	}
 }

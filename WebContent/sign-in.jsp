@@ -20,8 +20,8 @@
         </label>
       </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      <button class="btn btn-lg btn-secondary btn-block" href="createAccount.jsp">Create Account</button>
+      <button class="btn btn-lg btn-secondary btn-block" href="create-account.jsp">Create Account</button>
 	</form>
- <%@ include file ="footer.jsp" %>
+ <%@ include file ="footer-sign-in.jsp" %>
 </body>
 </html>
