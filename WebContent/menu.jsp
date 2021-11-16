@@ -4,22 +4,24 @@
 <html>
 <head>
 <body>
-	<div class="container">
-		<header
-			class="d-flex justify-content-between align-items-center py-auto mb-auto border-bottom">
+	<div class="container-xl-fluid">
+		<header class="d-flex justify-content-around align-items-center border-bottom">
 			<!-- Logo e nome healthtrack -->
+			<div class="pl-5">
 			<nav class="navbar navbar-light bg-light">
-				<div class="container-fluid">
+				<div>
 					<a class="navbar-brand" href="home.jsp"> <img
 						src="resources/images/logo.png" alt="" width="40" height="40"
 						class="d-inline-block align-text-bottom"> HealthTrack
 					</a>
 				</div>
 			</nav>
+			</div>
 			<!-- Navbar side burguer -->
 
 
 			<!-- Usuario e drop down para opcoes -->
+			<div class="pr-5">
 			<div class="dropdown text-end">
 				<a href="#"
 					class="d-block link-dark text-decoration-none dropdown-toggle"
@@ -35,6 +37,7 @@
 					<li><hr class="dropdown-divider"></li>
 					<li><a class="dropdown-item" href="sign-in.jsp">Sign out</a></li>
 				</ul>
+			</div>
 			</div>
 		</header>
 	</div>
