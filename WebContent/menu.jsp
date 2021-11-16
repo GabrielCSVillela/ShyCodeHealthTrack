@@ -4,7 +4,7 @@
 <html>
 <head>
 <body>
-	<div class="container-xl-fluid">
+	<div class="container-fluid">
 		<header class="d-flex justify-content-around align-items-center border-bottom">
 			<!-- Logo e nome healthtrack -->
 			<div class="pl-5">

@@ -9,8 +9,8 @@
 	src="resources/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="resources/css/styles.css">
 <body>
-<div class="container-fluid">
-	<nav class="footer navbar navbar-fixed-bottom">
+<div class="container-fluid m-0 p-0">
+	<nav class="footer">
 		<div class="wave">
 			<img src="resources/images/wave.png" alt="footer" width="100%"
 				height="200px"
