@@ -9,7 +9,7 @@ public class Client {
     /**
      * Número Id
      */
-    private int Id;
+    private int IdClient;
     
     /**
      * Nome
@@ -54,6 +54,7 @@ public class Client {
     // Construtor
     /**
      * Construtor Cliente
+     * @param idClient
      * @param name
      * @param lastName
      * @param email
@@ -62,9 +63,10 @@ public class Client {
      * @param dateOfBirth
      * @param height
      */
-    public Client(String name, String lastName, String email, String password, String phone, Date dateOfBirth,
+    public Client(int idClient, String name, String lastName, String email, String password, String phone, Date dateOfBirth,
 			int height, Calendar dateRecord) {
 		super();
+		IdClient = idClient;
 		Name = name;
 		LastName = lastName;
 		Email = email;
@@ -77,7 +79,7 @@ public class Client {
 
 	//Gets - Sets
     public int getId() {
-        return Id;
+        return IdClient;
     }
 
     public String getName() {

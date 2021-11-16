@@ -1,6 +1,7 @@
 package br.com.shycode.healthtrack.dao.impl;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -55,22 +56,28 @@ private Connection connection;
 	    rs = stmt.executeQuery();
 	
 	    while (rs.next()) {
-	      int idActivity = rs.getInt("ID_CLIENT");
-	      float maxPressure = rs.getFloat("MAX_PRESSURE");
-	      float minPressure = rs.getFloat("MIN_PRESSURE");
-          java.sql.Date dateMeasurement = rs.getDate("TIME_MEASUREMENT");
-          Calendar timeMeasurement = Calendar.getInstance();
-          timeMeasurement.setTimeInMillis(dateMeasurement.getTime());
-
-          java.sql.Date dateRecord = rs.getDate("DATE_RECORD");
+	      int idClient = rs.getInt("ID_CLIENT");
+	      String name = rs.getString("NAME");
+	      String lastName = rs.getString("LAST_NAME");
+	      String email = rs.getString("EMAIL");
+	      String password = rs.getString("PASSWORD");
+	      String phone = rs.getString("PHONE");
+	      
+          Date dateBirth = rs.getDate("DATE_OF_BIRTH");
+          Calendar timeBirth = Calendar.getInstance();
+          timeBirth.setTimeInMillis(dateBirth.getTime());
+          
+	      int height = rs.getInt("HEIGHT");
+	      
+          Calendar dateRecord = rs.getDate("DATE_RECORD");
           Calendar timeRecord = Calendar.getInstance();
           timeRecord.setTimeInMillis(dateRecord.getTime());
-          
+         
 //          java.sql.Date dateUpdate = rs.getDate("DATE_UPDATE");
 //          Calendar timeUpdate = Calendar.getInstance();
 //          timeUpdate.setTimeInMillis(dateUpdate.getTime());
 	      
-          Client client = new Client(idActivity, maxPressure, minPressure, timeMeasurement, timeRecord, null);
+          Client client = new Client(idClient, name, lastName, email, password, phone, dateBirth, height, dateRecord);
 	      
 	      list.add(client);
 	    }
