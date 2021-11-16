@@ -1,14 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="ISO-8859-1">
 <%@ include file="header.jsp"%>
 <title>Insert title here</title>
 </head>
 <%@ include file="menu.jsp"%>
 <body>
+
+
 	<div class="container">
 		<form class="form-restaurant" action="cadastro" method="post">
 			<input type="hidden" value="editar" name="acao"> <input
@@ -17,29 +19,28 @@
 				name="codigoEndereco">
 
 			<div style="display: flex; margin-bottom: 10px;">
-				<h5 style="margin-left: 12px;" class="sub-title-food">RefeiÃ§Ã£o</h5>
+				<h5 style="margin-left: 12px;" class="sub-title-food">Saúde</h5>
 			</div>
 			<div class="form-row">
 				<div class="col-md-4 mb-3">
-					<label for="validationServer01">Nome RefeiÃ§Ã£o</label> <input
+					<label for="validationServer01">Pressão mínima</label> <input
 						type="text" class="form-control" value="${restaurantes.name}"
-						id="id-nome" name="nome" placeholder="Nome RefeiÃ§Ã£o" required>
-					<div class="invalid-tooltip">Digite o nome da refeiÃ§Ã£o.</div>
+						id="id-nome" name="nome" placeholder="Pressão mínima" required>
+					<div class="invalid-tooltip">Digite a pressão mínima</div>
 				</div>
 				<div class="col-md-4 mb-3">
-					<label for="validationServer01">Caloria Total</label> <input
+					<label for="validationServer01">Pressão máxima</label> <input
 						type="text" class="form-control" value="${restaurantes.CNPJ}"
-						id="id-caloria" name="caloria" placeholder="Digite a caloria"
+						id="id-caloria" name="caloria" placeholder="Pressão máxima"
 						required>
-					<div class="invalid-tooltip">Digite um valor calorico.</div>
+					<div class="invalid-tooltip">Digite a pressão máxima</div>
 				</div>
 				<div class="col-md-4 mb-3">
-					<label for="validationServer01">DescriÃ§Ã£o</label> <input
+					<label for="validationServer01">Data e hora medição</label> <input
 						type="text" class="form-control" value="${restaurantes.minPrice}"
-						id="id-descricao" name="descricao"
-						placeholder="Digite a descriÃ§Ã£o da refeiÃ§Ã£o" required>
-					<div class="invalid-tooltip">Por favor, digite uma descriÃ§Ã£o.
-					</div>
+						id="id-descricao" name="descricao" placeholder="Data e hora"
+						required>
+					<div class="invalid-tooltip">Digite a data e hora</div>
 
 				</div>
 			</div>
@@ -51,7 +52,6 @@
 			</div>
 		</form>
 	</div>
-
 
 	<%@ include file="footer.jsp"%>
 </body>

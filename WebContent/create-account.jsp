@@ -85,28 +85,28 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Número Telefone</label>
-                                    <input class="input--style-4" type="text" name="phone">
+                                    <input class="input--style-4" type="number" name="phone">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Altura</label>
-                                    <input class="input--style-4" type="text" name="phone">
+                                    <input class="input--style-4" type="number" name="height">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Senha</label>
-                                    <input class="input--style-4" type="text" name="phone">
+                                    <input class="input--style-4" type="password" name="password">
                                 </div>
                                 <div class="input-group">
                                     <label class="label">Confirmar Senha</label>
-                                    <input class="input--style-4" type="text" name="phone">
+                                    <input class="input--style-4" type="password" name="confirm-password">
                                 </div>
                             </div>
                         </div>
                         <div class="p-t-15">
-                            <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+                            <button class="btn btn--radius-2 btn--blue" type="submit">Registrar</button>
                         </div>
                     </form>
                 </div>

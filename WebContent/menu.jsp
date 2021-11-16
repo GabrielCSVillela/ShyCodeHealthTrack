@@ -10,7 +10,7 @@
 			<!-- Logo e nome healthtrack -->
 			<nav class="navbar navbar-light bg-light">
 				<div class="container-fluid">
-					<a class="navbar-brand" href="#"> <img
+					<a class="navbar-brand" href="home.jsp"> <img
 						src="resources/images/logo.png" alt="" width="40" height="40"
 						class="d-inline-block align-text-bottom"> HealthTrack
 					</a>
