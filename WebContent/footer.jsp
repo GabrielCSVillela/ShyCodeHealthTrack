@@ -18,7 +18,28 @@
                 <a class="back-top" href="#">Voltar ao topo</a>
                 <br>
                 <p style="margin: 0 0 0 2rem;">&copy; ShyCode, 2021 &middot; <a href="#">Privacidade</a> &middot; <a href="#">Termos</a></p>
-              </footer>
+                   <!-- Section: Social media -->
+                <section class="mb-4">
+                    <a class="btn btn-primary btn-floating m-1" href="#!" role="button">
+                        <i class="fa fa-facebook-f"></i></a>
+
+                    <a class="btn btn-primary btn-floating m-1" href="#!" role="button"><i
+                        class="fa fa-twitter-square"></i></a>
+
+                    <a class="btn btn-primary btn-floating m-1" href="#!" role="button"><i
+                        class="fa fa-google"></i></a>
+
+                    <a class="btn btn-primary btn-floating m-1" href="#!" role="button"><i
+                        class="fa fa-instagram"></i></a>
+
+                    <a class="btn btn-primary btn-floating m-1" href="#!" role="button"><i
+                        class="fa fa-linkedin-in"></i></a>
+
+                        <a class="btn btn-primary btn-floating m-1" href="#!" role="button">
+                        <i class="fa fa-github"></i>
+                    </section>
+                <!-- Section: Social media -->
+            </footer>
         </div>
 	</nav>
    
