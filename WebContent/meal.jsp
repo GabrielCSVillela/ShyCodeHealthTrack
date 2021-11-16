@@ -6,7 +6,38 @@
 <title>Insert title here</title>
 <%@ include file="header.jsp"%>
 </head>
+<%@ include file="menu.jsp"%>
 <body>
-
+	<div style="width: 100%" class="list-restaurants">
+		<c:if test="${not empty msg }">
+			<div class="alert alert-success">${msg}</div>
+		</c:if>
+		<c:if test="${not empty erro }">
+			<div class="alert alert-danger">${erro}</div>
+		</c:if>
+		<table class="table table-striped">
+			<tr>
+				<th>Refeição</th>
+				<th>Calorias</th>
+				<th>Data</th>
+			</tr>
+			<c:forEach items="${restaurantes }" var="r">
+				<tr>
+					<td>${r.name}</td>
+					<td>${r.minPrice}</td>
+					<td>${r.CNPJ}</td>
+					<td>${r.category.name}</td>
+					<td><c:url value="cadastro" var="link">
+							<c:param name="acao" value="abrir-form-edicao" />
+							<c:param name="codigo" value="${r.idRestaurant}" />
+						</c:url> <a href="${link}" class="btn btn-primary btn-xs">Editar</a>
+						<button type="button" class="btn btn-danger btn-xs"
+							data-toggle="modal" data-target="#excluirModal"
+							onclick="codigoExcluir.value = ${r.idRestaurant}">
+							Excluir</button></td>
+				</tr>
+			</c:forEach>
+		</table>
+		<%@ include file="footer.jsp"%>
 </body>
 </html>
