@@ -58,8 +58,10 @@
 			</c:forEach>
 		</table>
 	</div>
-	<%@ include file="footer.jsp"%>
-
+	<div class="footer-sub-pages" style="position: absolute; bottom: 0; width:100%;">
+		<%@ include file="footer.jsp"%>
+	</div>
+	
     
 
 
