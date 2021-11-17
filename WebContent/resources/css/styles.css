@@ -8,10 +8,6 @@ html, body {
 	height: 100%;
 }
 
-*, ::after, ::before {
-	box-sizing: border-box;
-}
-
 .signIn {
 	display: -ms-flexbox;
 	display: flex;
@@ -46,6 +42,10 @@ html, body {
 
 .footer {
     background-color: #a3e1d2;
-
     width: 100%;
+}
+
+.fixar-footer {
+	position: absolute;
+	bottom: 0;
 }
