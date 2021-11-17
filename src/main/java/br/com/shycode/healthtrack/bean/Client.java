@@ -1,7 +1,6 @@
 package br.com.shycode.healthtrack.bean;
 
 import java.util.Calendar;
-import java.util.Date;
 
 public class Client {
 	
@@ -17,29 +16,29 @@ public class Client {
     private String  Name;
     
     /**
-     *Sobrenome 
+     * Sobrenome 
      */
     private String LastName;
     
     /**
-     *Email 
+     * Email 
      */
     private String Email;
     
     /**
-     *Senha 
+     * Senha 
      */
     private String Password;
     
     /**
-     *Telefone 
+     * Telefone 
      */
     private String Phone;
     
     /**
      * Data de Nascimento
      */
-    private Date DateOfBirth;
+    private Calendar DateOfBirth;
     
     /**
      * Altura
@@ -63,7 +62,7 @@ public class Client {
      * @param dateOfBirth
      * @param height
      */
-    public Client(int idClient, String name, String lastName, String email, String password, String phone, Date dateOfBirth,
+    public Client(int idClient, String name, String lastName, String email, String password, String phone, Calendar dateOfBirth,
 			int height, Calendar dateRecord) {
 		super();
 		IdClient = idClient;
@@ -97,11 +96,11 @@ public class Client {
     public void setLastName(String lastName) {
         LastName = lastName;
     }
-    public Date getDateOfBirth() {
+    public Calendar getDateOfBirth() {
         return DateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(Calendar dateOfBirth) {
         DateOfBirth = dateOfBirth;
     }
 

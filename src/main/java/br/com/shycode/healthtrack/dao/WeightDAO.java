@@ -2,16 +2,17 @@ package br.com.shycode.healthtrack.dao;
 
 import java.util.List;
 import br.com.shycode.healthtrack.bean.Weight;
+import br.com.shycode.healthtrack.exception.DBException;
 
 public interface WeightDAO {
 
-	public void insert(Weight weight);
+	void insert(Weight weight) throws DBException;
 
-	public List<Weight> select();
+	List<Weight> select();
 
-	public void update(Weight weight);
+	void update(Weight weight) throws DBException;
 
-	public void delete(int id);
+	void delete(int id) throws DBException;
 
-	public Weight selectById(int idSearch);
+	Weight selectById(int idSearch);
 }

@@ -2,16 +2,17 @@ package br.com.shycode.healthtrack.dao;
 
 import java.util.List;
 import br.com.shycode.healthtrack.bean.Nourishment;
+import br.com.shycode.healthtrack.exception.DBException;
 
 public interface NourishmentDAO {
 
-	public void insert(Nourishment nourishment);
+	void insert(Nourishment nourishment) throws DBException;
 
-	public List<Nourishment> select();
+	List<Nourishment> select();
 
-	public void update(Nourishment nourishment);
+	void update(Nourishment nourishment) throws DBException;
 
-	public void delete(int id);
+	void delete(int id) throws DBException;
 
-	public Nourishment selectById(int idSearch);
+	Nourishment selectById(int idSearch);
 }

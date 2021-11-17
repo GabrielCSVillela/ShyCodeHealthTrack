@@ -2,16 +2,17 @@ package br.com.shycode.healthtrack.dao;
 
 import java.util.List;
 import br.com.shycode.healthtrack.bean.Meal;
+import br.com.shycode.healthtrack.exception.DBException;
 
 public interface MealDAO {
 
-	public void insert(Meal meal);
+	void insert(Meal meal) throws DBException;
 
-	public List<Meal> select();
+	List<Meal> select();
 
-	public void update(Meal meal);
+	void update(Meal meal) throws DBException;
 
-	public void delete(int id);
+	void delete(int id) throws DBException;
 
-	public Meal selectById(int idSearch);
+	Meal selectById(int idSearch);
 }

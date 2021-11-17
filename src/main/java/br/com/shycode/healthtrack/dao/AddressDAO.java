@@ -2,16 +2,17 @@ package br.com.shycode.healthtrack.dao;
 
 import java.util.List;
 import br.com.shycode.healthtrack.bean.Address;
+import br.com.shycode.healthtrack.exception.DBException;
 
 public interface AddressDAO {
 
-	public void insert(Address address);
+	void insert(Address address) throws DBException;
 
-	public List<Address> select();
+	List<Address> select();
 
-	public void update(Address address);
+	void update(Address address) throws DBException;
 
-	public void delete(int id);
+	void delete(int id) throws DBException;
 
-	public Address selectById(int idSearch);
+	Address selectById(int idSearch);
 }
