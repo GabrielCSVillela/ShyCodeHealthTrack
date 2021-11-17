@@ -46,6 +46,6 @@ html, body {
 }
 
 .fixar-footer {
-	position: absolute;
+	position: relative;
 	bottom: 0;
 }
