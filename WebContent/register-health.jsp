@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <%@ include file="header.jsp"%>
-<title>Insert title here</title>
+<title>Register Health</title>
 </head>
 <%@ include file="menu.jsp"%>
 <body>
@@ -19,24 +19,24 @@
 				name="codigoEndereco">
 
 			<div style="display: flex; margin-bottom: 10px;">
-				<h5 style="margin-left: 12px;" class="sub-title-food">Saúde</h5>
+				<h5 style="margin-left: 12px;" class="sub-title-food">SaÃºde</h5>
 			</div>
 			<div class="form-row">
 				<div class="col-md-4 mb-3">
-					<label for="validationServer01">Pressão mínima</label> <input
+					<label for="validationServer01">PressÃ£o mÃ­nima</label> <input
 						type="text" class="form-control" value="${restaurantes.name}"
-						id="id-nome" name="nome" placeholder="Pressão mínima" required>
-					<div class="invalid-tooltip">Digite a pressão mínima</div>
+						id="id-nome" name="nome" placeholder="PressÃ£o mÃ­nima" required>
+					<div class="invalid-tooltip">Digite a pressÃ£o mÃ­nima</div>
 				</div>
 				<div class="col-md-4 mb-3">
-					<label for="validationServer01">Pressão máxima</label> <input
+					<label for="validationServer01">PressÃ£o mÃ¡xima</label> <input
 						type="text" class="form-control" value="${restaurantes.CNPJ}"
-						id="id-caloria" name="caloria" placeholder="Pressão máxima"
+						id="id-caloria" name="caloria" placeholder="PressÃ£o mÃ¡xima"
 						required>
-					<div class="invalid-tooltip">Digite a pressão máxima</div>
+					<div class="invalid-tooltip">Digite a pressÃ£o mÃ¡xima</div>
 				</div>
 				<div class="col-md-4 mb-3">
-					<label for="validationServer01">Data e hora medição</label> <input
+					<label for="validationServer01">Data e hora mediÃ§Ã£o</label> <input
 						type="text" class="form-control" value="${restaurantes.minPrice}"
 						id="id-descricao" name="descricao" placeholder="Data e hora"
 						required>

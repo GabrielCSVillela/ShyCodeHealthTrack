@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+	
 <!DOCTYPE html>
 <html>
 <head>
 <%@ include file="header.jsp"%>
-<title>Insert title here</title>
+<title>Register Meal</title>
 </head>
 <%@ include file="menu.jsp"%>
 <body>
