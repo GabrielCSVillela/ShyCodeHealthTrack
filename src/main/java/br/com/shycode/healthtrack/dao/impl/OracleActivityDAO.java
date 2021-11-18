@@ -10,7 +10,7 @@ import java.util.List;
 
 import br.com.shycode.healthtrack.bean.Activity;
 import br.com.shycode.healthtrack.dao.ActivityDAO;
-import br.com.shycode.healthtrack.singleton.ConnectionDB;
+import br.com.shycode.healthtrack.singleton.ConnectionManager;
 
 public class OracleActivityDAO implements ActivityDAO {
 	
@@ -20,7 +20,7 @@ public class OracleActivityDAO implements ActivityDAO {
       PreparedStatement stmt = null;
   
       try {
-    	connection = ConnectionDB.obtainConnection();
+    	connection = ConnectionManager.getInstance().getConnection();
         String sql = "INSERT INTO TAB_ACTIVITY(ID_ACTIVITY, NAME_ACTIVITY, CALORIE_ACTIVITY, START_TIME, END_TIME, DATE_RECORD) VALUES (SQ_ACTIVITY.NEXTVAL, ?, ?, ?, ?, ?)";
         stmt = connection.prepareStatement(sql);
         stmt.setString(1, activity.getName());
@@ -50,7 +50,7 @@ public class OracleActivityDAO implements ActivityDAO {
 	  PreparedStatement stmt = null;
 	  ResultSet rs = null;
 	  try {
-		connection = ConnectionDB.obtainConnection();
+		connection = ConnectionManager.getInstance().getConnection();
 	    stmt = connection.prepareStatement("SELECT * FROM TAB_ACTIVITY");
 	    rs = stmt.executeQuery();
 	
@@ -97,7 +97,7 @@ public class OracleActivityDAO implements ActivityDAO {
     PreparedStatement stmt = null;
   
     try {
-  	connection = ConnectionDB.obtainConnection();
+  	connection = ConnectionManager.getInstance().getConnection();
       String sql = "UPDATE TAB_ACTIVITY SET NAME_ACTIVITY = ?, CALORIE_ACTIVITY = ?, START_TIME = ?, END_TIME = ?, DATE_UPDATE = ? WHERE ID_ACTIVITY = ?";
       stmt = connection.prepareStatement(sql);
       stmt.setString(1, activity.getName());
@@ -127,7 +127,7 @@ public class OracleActivityDAO implements ActivityDAO {
     PreparedStatement stmt = null;
   
     try {
-  	connection = ConnectionDB.obtainConnection();
+  	connection = ConnectionManager.getInstance().getConnection();
       String sql = "DELETE FROM TAB_ACTIVITY WHERE ID_ACTIVITY = ?";
       stmt = connection.prepareStatement(sql);
       stmt.setInt(1, id);
@@ -149,7 +149,7 @@ public class OracleActivityDAO implements ActivityDAO {
     PreparedStatement stmt = null;
     ResultSet rs = null;
     try {
-  	connection = ConnectionDB.obtainConnection();
+  	connection = ConnectionManager.getInstance().getConnection();
       stmt = connection.prepareStatement("SELECT * FROM TAB_ACTIVITY WHERE ID_ACTIVITY = ?");
       stmt.setInt(1, idSearch);
       rs = stmt.executeQuery();

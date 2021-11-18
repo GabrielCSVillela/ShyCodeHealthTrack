@@ -11,7 +11,7 @@ import java.util.List;
 import br.com.shycode.healthtrack.bean.Client;
 import br.com.shycode.healthtrack.dao.ClientDAO;
 import br.com.shycode.healthtrack.exception.DBException;
-import br.com.shycode.healthtrack.singleton.ConnectionDB;
+import br.com.shycode.healthtrack.singleton.ConnectionManager;
 
 public class OracleClientDAO implements ClientDAO {
 private Connection connection;
@@ -20,7 +20,7 @@ private Connection connection;
       PreparedStatement stmt = null;
   
       try {
-    	connection = ConnectionDB.obtainConnection();
+    	connection = ConnectionManager.getInstance().getConnection();
         String sql = "INSERT INTO TAB_CLIENT(ID_CLIENT, NAME, LAST_NAME, EMAIL, PASSWORD, PHONE, DATE_OF_BIRTH, HEIGHT, DATE_RECORD) VALUES (SQ_CLIENT.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?)";
         stmt = connection.prepareStatement(sql);
         stmt.setString(1, client.getName());
@@ -52,7 +52,7 @@ private Connection connection;
 	  PreparedStatement stmt = null;
 	  ResultSet rs = null;
 	  try {
-		connection = ConnectionDB.obtainConnection();
+		connection = ConnectionManager.getInstance().getConnection();
 	    stmt = connection.prepareStatement("SELECT * FROM TAB_CLIENT");
 	    rs = stmt.executeQuery();
 	
@@ -102,7 +102,7 @@ private Connection connection;
     PreparedStatement stmt = null;
   
     try {
-  	  connection = ConnectionDB.obtainConnection();
+  	  connection = ConnectionManager.getInstance().getConnection();
       String sql = "UPDATE TAB_CLIENT SET NAME = ?, LAST_NAME = ?, EMAIL = ?, PASSWORD = ?, PHONE = ?, DATE_OF_BIRTH = ?, HEIGHT = ?, DATE_RECORD = ? WHERE ID_CLIENT = ?";
       stmt = connection.prepareStatement(sql);
       stmt.setString(1, client.getName());
@@ -139,7 +139,7 @@ private Connection connection;
     PreparedStatement stmt = null;
   
     try {
-  	  connection = ConnectionDB.obtainConnection();
+  	  connection = ConnectionManager.getInstance().getConnection();
       String sql = "DELETE FROM TAB_CLIENT WHERE ID_CLIENT = ?";
       stmt = connection.prepareStatement(sql);
       stmt.setInt(1, id);
@@ -161,7 +161,7 @@ private Connection connection;
     PreparedStatement stmt = null;
     ResultSet rs = null;
     try {
-  	  connection = ConnectionDB.obtainConnection();
+  	  connection = ConnectionManager.getInstance().getConnection();
       stmt = connection.prepareStatement("SELECT * FROM TAB_CLIENT WHERE ID_CLIENT = ?");
       stmt.setInt(1, idSearch);
       rs = stmt.executeQuery();

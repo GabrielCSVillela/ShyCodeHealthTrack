@@ -10,7 +10,7 @@ import java.util.List;
 
 import br.com.shycode.healthtrack.bean.BloodPressure;
 import br.com.shycode.healthtrack.dao.BloodPressureDAO;
-import br.com.shycode.healthtrack.singleton.ConnectionDB;
+import br.com.shycode.healthtrack.singleton.ConnectionManager;
 
 public class OracleBloodPressureDAO implements BloodPressureDAO {
 	
@@ -20,7 +20,7 @@ private Connection connection;
       PreparedStatement stmt = null;
   
       try {
-    	connection = ConnectionDB.obtainConnection();
+    	connection = ConnectionManager.getInstance().getConnection();
         String sql = "INSERT INTO TAB_BLOOD_PRESSURE(ID_BLOOD_PRESSURE, MAX_PRESSURE, MIN_PRESSURE, TIME_MEASUREMENT, DATE_RECORD) VALUES (SQ_ACTIVITY.NEXTVAL, ?, ?, ?, ?)";
         stmt = connection.prepareStatement(sql);
         stmt.setFloat(1, bloodPressure.getMaxPressure());
@@ -48,7 +48,7 @@ private Connection connection;
 	  PreparedStatement stmt = null;
 	  ResultSet rs = null;
 	  try {
-		connection = ConnectionDB.obtainConnection();
+		connection = ConnectionManager.getInstance().getConnection();
 	    stmt = connection.prepareStatement("SELECT * FROM TAB_BLOOD_PRESSURE");
 	    rs = stmt.executeQuery();
 	
@@ -91,7 +91,7 @@ private Connection connection;
     PreparedStatement stmt = null;
   
     try {
-  	connection = ConnectionDB.obtainConnection();
+  	connection = ConnectionManager.getInstance().getConnection();
       String sql = "UPDATE TAB_BLOOD_PRESSURE SET MAX_PRESSURE = ?, MIN_PRESSURE = ?, TIME_MEASUREMENT = ?, DATE_UPDATE = ? WHERE ID_BLOOD_PRESSURE = ?";
       stmt = connection.prepareStatement(sql);
       stmt.setFloat(1, bloodPressure.getMaxPressure());
@@ -119,7 +119,7 @@ private Connection connection;
     PreparedStatement stmt = null;
   
     try {
-  	connection = ConnectionDB.obtainConnection();
+  	connection = ConnectionManager.getInstance().getConnection();
       String sql = "DELETE FROM TAB_BLOOD_PRESSURE WHERE ID_BLOOD_PRESSURE = ?";
       stmt = connection.prepareStatement(sql);
       stmt.setInt(1, id);
@@ -141,7 +141,7 @@ private Connection connection;
     PreparedStatement stmt = null;
     ResultSet rs = null;
     try {
-  	connection = ConnectionDB.obtainConnection();
+  	connection = ConnectionManager.getInstance().getConnection();
       stmt = connection.prepareStatement("SELECT * FROM TAB_BLOOD_PRESSURE WHERE ID_BLOOD_PRESSURE = ?");
       stmt.setInt(1, idSearch);
       rs = stmt.executeQuery();

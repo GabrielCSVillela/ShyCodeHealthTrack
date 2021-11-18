@@ -10,7 +10,7 @@ import java.util.List;
 
 import br.com.shycode.healthtrack.bean.Nourishment;
 import br.com.shycode.healthtrack.dao.NourishmentDAO;
-import br.com.shycode.healthtrack.singleton.ConnectionDB;
+import br.com.shycode.healthtrack.singleton.ConnectionManager;
 
 public class OracleNourishmentDAO implements NourishmentDAO {
 	private Connection connection;
@@ -19,7 +19,7 @@ public class OracleNourishmentDAO implements NourishmentDAO {
       PreparedStatement stmt = null;
   
       try {
-        connection = ConnectionDB.obtainConnection();
+        connection = ConnectionManager.getInstance().getConnection();
         String sql = "INSERT INTO TAB_NOURISHMENT(ID_NOURISHMENT, DESCRIPTION, CALORIE_FOOD, DATERECORD) VALUES (SQ_NOURISHMENT.NEXTVAL, ?, ?, ?)";
         stmt = connection.prepareStatement(sql);
         stmt.setString(1, nourishment.getDescription());
@@ -45,7 +45,7 @@ public class OracleNourishmentDAO implements NourishmentDAO {
 	      PreparedStatement stmt = null;
 	      ResultSet rs = null;
 	      try {
-	    	connection = ConnectionDB.obtainConnection();
+	    	connection = ConnectionManager.getInstance().getConnection();
 	        stmt = connection.prepareStatement("SELECT * FROM TAB_NOURISHMENT");
 	        rs = stmt.executeQuery();
 	    
@@ -80,7 +80,7 @@ public class OracleNourishmentDAO implements NourishmentDAO {
         PreparedStatement stmt = null;
       
         try {
-      	connection = ConnectionDB.obtainConnection();
+      	connection = ConnectionManager.getInstance().getConnection();
           String sql = "UPDATE TAB_NOURISHMENT SET DESCRIPTION = ?, CALORIE_FOOD = ?, DATE_RECORD = ? WHERE ID_NOURISHMENT = ?";
           stmt = connection.prepareStatement(sql);
           stmt.setString(1, nourishment.getDescription());
@@ -105,7 +105,7 @@ public class OracleNourishmentDAO implements NourishmentDAO {
         PreparedStatement stmt = null;
       
         try {
-      	connection = ConnectionDB.obtainConnection();
+      	connection = ConnectionManager.getInstance().getConnection();
           String sql = "DELETE FROM TAB_NOURISHMENT WHERE ID_NOURISHMENT = ?";
           stmt = connection.prepareStatement(sql);
           stmt.setInt(1, id);
@@ -127,7 +127,7 @@ public class OracleNourishmentDAO implements NourishmentDAO {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
-          connection = ConnectionDB.obtainConnection();
+          connection = ConnectionManager.getInstance().getConnection();
           stmt = connection.prepareStatement("SELECT * FROM TAB_NOURISHMENT WHERE ID_NOURISHMENT = ?");
           stmt.setInt(1, idSearch);
           rs = stmt.executeQuery();

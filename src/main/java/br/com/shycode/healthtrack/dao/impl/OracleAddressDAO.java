@@ -10,7 +10,7 @@ import java.util.List;
 
 import br.com.shycode.healthtrack.bean.Address;
 import br.com.shycode.healthtrack.dao.AddressDAO;
-import br.com.shycode.healthtrack.singleton.ConnectionDB;
+import br.com.shycode.healthtrack.singleton.ConnectionManager;
 
 public class OracleAddressDAO implements AddressDAO {
 	private Connection connection;
@@ -19,7 +19,7 @@ public class OracleAddressDAO implements AddressDAO {
       PreparedStatement stmt = null;
   
       try {
-        connection = ConnectionDB.obtainConnection();
+        connection = ConnectionManager.getInstance().getConnection();
         String sql = "INSERT INTO TAB_ADDRESS(ID_ADDRESS, ID_CLIENT, HOME_NUMBER, ZIP_CODE, STREET, CITY, NEIGHBORHOOD, STATE, COUNTRY, DATE_RECORD) VALUES (SQ_ADDRESS.NEXTVAL, SQ_CLIENT.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?)";
         stmt = connection.prepareStatement(sql);
         stmt.setInt(1, address.getNumber());
@@ -50,7 +50,7 @@ public class OracleAddressDAO implements AddressDAO {
       PreparedStatement stmt = null;
       ResultSet rs = null;
       try {
-    	connection = ConnectionDB.obtainConnection();
+    	connection = ConnectionManager.getInstance().getConnection();
         stmt = connection.prepareStatement("SELECT * FROM TAB_ADDRESS");
         rs = stmt.executeQuery();
     
@@ -91,7 +91,7 @@ public class OracleAddressDAO implements AddressDAO {
     PreparedStatement stmt = null;
   
     try {
-  	connection = ConnectionDB.obtainConnection();
+  	connection = ConnectionManager.getInstance().getConnection();
       String sql = "UPDATE TAB_ADDRESS SET HOME_NUMBER = ?, ZIP_CODE = ?, STREET = ?, CITY = ?, NEIGHBORHOOD = ?, STATE = ?, COUNTRY = ?, DATE_RECORD = ? WHERE ID_ADDRESS = ?";
       stmt = connection.prepareStatement(sql);
       stmt.setInt(1, address.getNumber());
@@ -121,7 +121,7 @@ public class OracleAddressDAO implements AddressDAO {
     PreparedStatement stmt = null;
   
     try {
-  	connection = ConnectionDB.obtainConnection();
+  	connection = ConnectionManager.getInstance().getConnection();
       String sql = "DELETE FROM TAB_ADDRESS WHERE ID_ADDRESS = ?";
       stmt = connection.prepareStatement(sql);
       stmt.setInt(1, id);
@@ -143,7 +143,7 @@ public class OracleAddressDAO implements AddressDAO {
     PreparedStatement stmt = null;
     ResultSet rs = null;
     try {
-      connection = ConnectionDB.obtainConnection();
+      connection = ConnectionManager.getInstance().getConnection();
       stmt = connection.prepareStatement("SELECT * FROM TAB_ADDRESS WHERE ID_ADDRESS = ?");
       stmt.setInt(1, idSearch);
       rs = stmt.executeQuery();

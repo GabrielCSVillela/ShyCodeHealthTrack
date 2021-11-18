@@ -10,7 +10,7 @@ import java.util.List;
 
 import br.com.shycode.healthtrack.bean.Meal;
 import br.com.shycode.healthtrack.dao.MealDAO;
-import br.com.shycode.healthtrack.singleton.ConnectionDB;
+import br.com.shycode.healthtrack.singleton.ConnectionManager;
 
 public class OracleMealDAO implements MealDAO {
 	private Connection connection;
@@ -19,7 +19,7 @@ public class OracleMealDAO implements MealDAO {
       PreparedStatement stmt = null;
   
       try {
-        connection = ConnectionDB.obtainConnection();
+        connection = ConnectionManager.getInstance().getConnection();
         String sql = "INSERT INTO TAB_MEAL(ID_MEAL, NAME_MEAL, TOTAL_CALORIE, DATE_RECORD) VALUES (SQ_MEAL.NEXTVAL, ?, ?, ?)";
         stmt = connection.prepareStatement(sql);
         stmt.setString(1, meal.getNameMeal());
@@ -45,7 +45,7 @@ public class OracleMealDAO implements MealDAO {
 	      PreparedStatement stmt = null;
 	      ResultSet rs = null;
 	      try {
-	    	connection = ConnectionDB.obtainConnection();
+	    	connection = ConnectionManager.getInstance().getConnection();
 	        stmt = connection.prepareStatement("SELECT * FROM TAB_MEAL");
 	        rs = stmt.executeQuery();
 	    
@@ -80,7 +80,7 @@ public class OracleMealDAO implements MealDAO {
         PreparedStatement stmt = null;
       
         try {
-      	connection = ConnectionDB.obtainConnection();
+      	connection = ConnectionManager.getInstance().getConnection();
           String sql = "UPDATE TAB_MEAL SET NAME_MEAL = ?, TOTAL_CALORIE = ?, DATE_RECORD = ? WHERE ID_MEAL = ?";
           stmt = connection.prepareStatement(sql);
           stmt.setString(1, meal.getNameMeal());
@@ -105,7 +105,7 @@ public class OracleMealDAO implements MealDAO {
         PreparedStatement stmt = null;
       
         try {
-      	connection = ConnectionDB.obtainConnection();
+      	connection = ConnectionManager.getInstance().getConnection();
           String sql = "DELETE FROM TAB_MEAL WHERE ID_MEAL = ?";
           stmt = connection.prepareStatement(sql);
           stmt.setInt(1, id);
@@ -127,7 +127,7 @@ public class OracleMealDAO implements MealDAO {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
-      	connection = ConnectionDB.obtainConnection();
+      	connection = ConnectionManager.getInstance().getConnection();
           stmt = connection.prepareStatement("SELECT * FROM TAB_MEAL WHERE ID_MEAL = ?");
           stmt.setInt(1, idSearch);
           rs = stmt.executeQuery();

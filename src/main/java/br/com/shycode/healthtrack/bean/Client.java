@@ -76,6 +76,22 @@ public class Client {
 		DateRecord = dateRecord;
 	}
 
+    /**
+     *  Construtor para edição. Não pode ter a edição do dia de criação
+     * @param idClient2
+     * @param name2
+     * @param lastName2
+     * @param email2
+     * @param password2
+     * @param phone2
+     * @param dateBirth
+     * @param height2
+     */
+	public Client(int idClient2, String name2, String lastName2, String email2, String password2, String phone2,
+			Calendar dateBirth, int height2) {
+		// TODO Auto-generated constructor stub
+	}
+
 	//Gets - Sets
     public int getId() {
         return IdClient;
