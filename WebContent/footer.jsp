@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript" src="resources/js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
 <script type="text/javascript" src="resources/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="resources/js/bootstrap.bundle.js"></script>
 <link rel="stylesheet" href="resources/css/styles.css">
 <body>
 <div class="fixar-footer container-fluid m-0 p-0">
