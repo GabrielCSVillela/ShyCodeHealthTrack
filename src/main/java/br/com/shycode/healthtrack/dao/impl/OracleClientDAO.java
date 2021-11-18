@@ -31,7 +31,11 @@ private Connection connection;
         java.sql.Date dateBirth = new java.sql.Date(client.getDateOfBirth().getTimeInMillis());
         stmt.setDate(6, dateBirth);
         stmt.setInt(7, client.getHeight());
-		java.sql.Date dateRecord = new java.sql.Date(client.getDateRecord().getTimeInMillis());
+        
+        Calendar timeRecord = Calendar.getInstance();
+        timeRecord = client.getDateRecord();
+        java.sql.Date dateRecord = new java.sql.Date(timeRecord.getTimeInMillis());
+        
 		stmt.setDate(8, dateRecord);
   
         stmt.executeUpdate();

@@ -19,7 +19,7 @@ import br.com.shycode.healthtrack.factory.DAOFactory;
 /**
  * Servlet implementation class CadastrarRestauranteServlet
  */
-@WebServlet("/register")
+@WebServlet("/cliente")
 public class ClientServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -69,7 +69,7 @@ public class ClientServlet extends HttpServlet {
 
 	private void abrirFormCadastro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.getRequestDispatcher("???.jsp").forward(request, response);
+			request.getRequestDispatcher("create-account.jsp").forward(request, response);
 	}
 
 	/**
@@ -110,18 +110,18 @@ public class ClientServlet extends HttpServlet {
 
 	private void editar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			int idClient = Integer.parseInt(request.getParameter("codigo"));
-			String name = request.getParameter("nome");
-			String lastName = request.getParameter("sobrenome");
+			int idClient = Integer.parseInt(request.getParameter("id"));
+			String name = request.getParameter("first_name");
+			String lastName = request.getParameter("last_name");
 			String email = request.getParameter("email");
-			String password = request.getParameter("senha");
-			String phone = request.getParameter("telefone");
+			String password = request.getParameter("password");
+			String phone = request.getParameter("phone");
 
 			SimpleDateFormat birthFormat = new SimpleDateFormat("dd/MM/yyyy");
 			Calendar dateBirth = Calendar.getInstance();
-			dateBirth.setTime(birthFormat.parse(request.getParameter("nascimento")));
+			dateBirth.setTime(birthFormat.parse(request.getParameter("birthday")));
 
-			int height = Integer.parseInt(request.getParameter("altura"));
+			int height = Integer.parseInt(request.getParameter("height"));
 
 			Client client = new Client(idClient, name, lastName, email, password, phone, dateBirth, height);
 			daoClient.update(client);
@@ -141,26 +141,22 @@ public class ClientServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		try {
-			String name = request.getParameter("nome");
-			String lastName = request.getParameter("sobrenome");
+			String name = request.getParameter("first_name");
+			String lastName = request.getParameter("last_name");
 			String email = request.getParameter("email");
-			String password = request.getParameter("senha");
-			String phone = request.getParameter("telefone");
+			String password = request.getParameter("password");
+			String phone = request.getParameter("phone");
 
 			SimpleDateFormat birthFormat = new SimpleDateFormat("dd/MM/yyyy");
 			Calendar dateBirth = Calendar.getInstance();
-			dateBirth.setTime(birthFormat.parse(request.getParameter("nascimento")));
+			dateBirth.setTime(birthFormat.parse(request.getParameter("birthday")));
 
-			int height = Integer.parseInt(request.getParameter("altura"));
+			int height = Integer.parseInt(request.getParameter("height"));
 
-			SimpleDateFormat recordFormat = new SimpleDateFormat("dd/MM/yyyy");
 			Calendar dateRecord = Calendar.getInstance();
-			dateRecord.setTime(recordFormat.parse(request.getParameter("criacao")));
 
-			// Request de Category
-
-			Client client = new Client(0, name, lastName, email, password, phone, dateBirth, height);
-			daoClient.update(client);
+			Client client = new Client(0, name, lastName, email, password, phone, dateBirth, height, dateRecord);
+			daoClient.insert(client);
 
 			request.setAttribute("msg", "Cliente cadastrado!");
 		} catch (DBException db) {
