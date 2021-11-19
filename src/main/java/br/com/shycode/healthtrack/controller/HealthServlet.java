@@ -11,24 +11,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.shycode.healthtrack.bean.Activity;
-import br.com.shycode.healthtrack.dao.ActivityDAO;
+import br.com.shycode.healthtrack.bean.BloodPressure;
+import br.com.shycode.healthtrack.dao.BloodPressureDAO;
 import br.com.shycode.healthtrack.exception.DBException;
 import br.com.shycode.healthtrack.factory.DAOFactory;
 
 /**
- * Servlet implementation class ActivityServlet
+ * Servlet implementation class HealthServlet
  */
-@WebServlet("/activity")
-public class ActivityServlet extends HttpServlet {
+@WebServlet("/health")
+public class HealthServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private ActivityDAO daoActivity;
+	private BloodPressureDAO daoBloodPressure;
 
 	@Override
 	public void init() throws ServletException {
 		super.init();
-		daoActivity = DAOFactory.getActivityDAO();
+		daoBloodPressure = DAOFactory.getBloodPressureDAO();
 	}
 
 	/**
@@ -54,21 +54,21 @@ public class ActivityServlet extends HttpServlet {
 	}
 
 	private void list(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Activity> list = daoActivity.select();
-		request.setAttribute("activities", list);
+		List<BloodPressure> list = daoBloodPressure.select();
+		request.setAttribute("bloodPressures", list);
 		request.getRequestDispatcher("??.jsp").forward(request, response);
 	}
 
 	private void openFormUpdate(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int idActivity = Integer.parseInt(request.getParameter("id"));
-		Activity activity = daoActivity.selectById(idActivity);
-		request.setAttribute("activity", activity);
+		int idBloodPressure = Integer.parseInt(request.getParameter("id"));
+		BloodPressure bloodPressure = daoBloodPressure.selectById(idBloodPressure);
+		request.setAttribute("bloodPressure", bloodPressure);
 	}
 
 	private void openFormRegister(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.getRequestDispatcher("register-activity.jsp").forward(request, response);
+		request.getRequestDispatcher("register-health.jsp").forward(request, response);
 	}
 
 	/**
@@ -95,10 +95,10 @@ public class ActivityServlet extends HttpServlet {
 	}
 
 	public void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int idActivity = Integer.parseInt(request.getParameter("id"));
+		int idBloodPressure = Integer.parseInt(request.getParameter("id"));
 		try {
-			daoActivity.delete(idActivity);
-			request.setAttribute("msg", "Atividade removida!");
+			daoBloodPressure.delete(idBloodPressure);
+			request.setAttribute("msg", "Pressão removida!");
 		} catch (DBException e) {
 			e.printStackTrace();
 			request.setAttribute("erro", "Erro ao excluir");
@@ -108,23 +108,21 @@ public class ActivityServlet extends HttpServlet {
 
 	private void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			int idActivity = Integer.parseInt(request.getParameter("id"));
-			String nameActivity = request.getParameter("name_activity");
-			int calorie = Integer.parseInt(request.getParameter("calorie"));
+			int idBloodPressure = Integer.parseInt(request.getParameter("id"));
+			Float minPress = Float.parseFloat(request.getParameter("min_press"));
+			Float maxPress = Float.parseFloat(request.getParameter("max_press"));
 
-			SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
-			Calendar timeStart = Calendar.getInstance();
-			timeStart.setTime(timeFormat.parse(request.getParameter("time_start")));
-
-			Calendar timeEnd = Calendar.getInstance();
-			timeEnd.setTime(timeFormat.parse(request.getParameter("time_end")));
+			SimpleDateFormat timeFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
+			Calendar timeMeasurement = Calendar.getInstance();
+			timeMeasurement.setTime(timeFormat.parse(request.getParameter("time_measurement")));
 
 			Calendar dateUpdate = Calendar.getInstance();
 
-			Activity activity = new Activity(idActivity, nameActivity, calorie, timeStart, timeEnd, dateUpdate);
-			daoActivity.update(activity);
+			BloodPressure bloodPressure = new BloodPressure(idBloodPressure, minPress, maxPress, timeMeasurement,
+					dateUpdate);
+			daoBloodPressure.update(bloodPressure);
 
-			request.setAttribute("msg", "Atividade atualizada!");
+			request.setAttribute("msg", "Pressão atualizada!");
 		} catch (DBException db) {
 			db.printStackTrace();
 			request.setAttribute("erro", "Erro ao atualizar");
@@ -139,22 +137,20 @@ public class ActivityServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		try {
-			String nameActivity = request.getParameter("name_activity");
-			int calorie = Integer.parseInt(request.getParameter("calorie"));
+			Float minPress = Float.parseFloat(request.getParameter("min_press"));
+			Float maxPress = Float.parseFloat(request.getParameter("max_press"));
 
-			SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
-			Calendar timeStart = Calendar.getInstance();
-			timeStart.setTime(timeFormat.parse(request.getParameter("time_start")));
-
-			Calendar timeEnd = Calendar.getInstance();
-			timeEnd.setTime(timeFormat.parse(request.getParameter("time_end")));
+			SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
+			Calendar timeMeasurement = Calendar.getInstance();
+			timeMeasurement.setTime(timeFormat.parse(request.getParameter("time_measurement")));
 
 			Calendar dateRecord = Calendar.getInstance();
 
-			Activity activity = new Activity(0, nameActivity, calorie, timeStart, timeEnd, dateRecord);
-			daoActivity.insert(activity);
+			BloodPressure bloodPressure = new BloodPressure(0, minPress, maxPress, timeMeasurement,
+					dateRecord);
+			daoBloodPressure.insert(bloodPressure);
 
-			request.setAttribute("msg", "Atividade cadastrada!");
+			request.setAttribute("msg", "Pressão cadastrada!");
 		} catch (DBException db) {
 			db.printStackTrace();
 			request.setAttribute("erro", "Erro ao cadastrar");

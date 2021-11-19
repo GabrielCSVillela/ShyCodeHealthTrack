@@ -83,42 +83,9 @@ public class Address {
 		Country = country;
 		DateRecord = dateRecord;
 	}
-	    
-	public Calendar getDateRecord() {
-		return DateRecord;
-	}
-
-	public void setDateRecord(Calendar dateRecord) {
-		DateRecord = dateRecord;
-	}
 
 	public Address() {
 		super();
-	}
-
-	// M�todos
-    /**
-     * Registra Endere�o
-     */
-    public void register() {
-    	IdAddress = 2;
-    }
-    
-	/**
-	 *Remove Endere�o 
-	 */
-    
-	@SuppressWarnings("null")
-	public void remove() {
-		IdAddress = 0;
-		IdClient = 0;
-		Number = 0;
-		ZipCode = 0;
-		Street = null;
-		City = null;
-		Neighborhood = null;
-		State = null;
-		Country = null;
 	}
     
     /**
@@ -221,4 +188,12 @@ public class Address {
     public void setZipCode(int zipCode) {
         ZipCode = zipCode;
     }
+    
+	public Calendar getDateRecord() {
+		return DateRecord;
+	}
+
+	public void setDateRecord(Calendar dateRecord) {
+		DateRecord = dateRecord;
+	}
 }

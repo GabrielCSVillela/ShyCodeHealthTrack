@@ -53,6 +53,15 @@ public class BloodPressure {
 		DateUpdate = dateUpdate;
 	}
 	
+	public BloodPressure(int id, float maxPressure, float minPressure, Calendar timeMeasurement, Calendar dateRecord) {
+		super();
+		Id = id;
+		MaxPressure = maxPressure;
+		MinPressure = minPressure;
+		TimeMeasurement = timeMeasurement;
+		DateRecord = dateRecord;
+	}
+
 	public BloodPressure() {
 		super();
 	}

@@ -22,8 +22,8 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<a class="nav-item nav-link active" href="#">Listar</a> 
-					<a class="nav-item nav-link" href="#">Cadastrar</a>
+					<a class="nav-item nav-link active" href="activity.jsp">Listar</a> 
+					<a class="nav-item nav-link" href="register-activity.jsp">Cadastrar</a>
 				</div>
 			</div>
 		</nav>

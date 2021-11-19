@@ -21,7 +21,7 @@
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
 					<a class="nav-item nav-link active" href="meal.jsp">Listar</a>
-					<a class="nav-item nav-link" href="#">Cadastrar</a>
+					<a class="nav-item nav-link" href="register-meal.jsp">Cadastrar</a>
 				</div>
 			</div>
 		</nav>

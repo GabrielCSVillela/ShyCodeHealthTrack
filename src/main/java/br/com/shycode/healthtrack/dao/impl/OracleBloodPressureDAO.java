@@ -56,19 +56,19 @@ private Connection connection;
 	      int idActivity = rs.getInt("ID_BLOOD_PRESSURE");
 	      float maxPressure = rs.getFloat("MAX_PRESSURE");
 	      float minPressure = rs.getFloat("MIN_PRESSURE");
-          java.sql.Date dateMeasurement = rs.getDate("TIME_MEASUREMENT");
-          Calendar timeMeasurement = Calendar.getInstance();
-          timeMeasurement.setTimeInMillis(dateMeasurement.getTime());
+          java.sql.Date timeMeasurement = rs.getDate("TIME_MEASUREMENT");
+          Calendar dateMeasurement = Calendar.getInstance();
+          dateMeasurement.setTimeInMillis(timeMeasurement.getTime());
 
-          java.sql.Date dateRecord = rs.getDate("DATE_RECORD");
-          Calendar timeRecord = Calendar.getInstance();
-          timeRecord.setTimeInMillis(dateRecord.getTime());
+          java.sql.Date timeRecord = rs.getDate("DATE_RECORD");
+          Calendar dateRecord = Calendar.getInstance();
+          dateRecord.setTimeInMillis(timeRecord.getTime());
           
-//          java.sql.Date dateUpdate = rs.getDate("DATE_UPDATE");
-//          Calendar timeUpdate = Calendar.getInstance();
-//          timeUpdate.setTimeInMillis(dateUpdate.getTime());
+          java.sql.Date timeUpdate = rs.getDate("DATE_UPDATE");
+          Calendar dateUpdate = Calendar.getInstance();
+          dateUpdate.setTimeInMillis(timeUpdate.getTime());
 	      
-          BloodPressure bloodPressure = new BloodPressure(idActivity, maxPressure, minPressure, timeMeasurement, timeRecord, null);
+          BloodPressure bloodPressure = new BloodPressure(idActivity, maxPressure, minPressure, dateMeasurement, dateRecord, dateUpdate);
 	      
 	      list.add(bloodPressure);
 	    }
@@ -100,6 +100,8 @@ private Connection connection;
       stmt.setDate(3, timeMeasurement);
       java.sql.Date dateUpdate = new java.sql.Date(bloodPressure.getDateUpdate().getTimeInMillis());
       stmt.setDate(4, dateUpdate);
+      
+      
       stmt.setInt(5, bloodPressure.getId());
   
       stmt.executeUpdate();
@@ -150,19 +152,19 @@ private Connection connection;
         int idBloodPressure = rs.getInt("ID_BLOOD_PRESSURE");
         float maxPressure = rs.getFloat("MAX_PRESSURE");
         float minPressure = rs.getFloat("MIN_PRESSURE");
-        java.sql.Date dateMeasurement = rs.getDate("TIME_MEASUREMENT");
-        Calendar timeMeasurement = Calendar.getInstance();
-        timeMeasurement.setTimeInMillis(dateMeasurement.getTime());
+        java.sql.Date timeMeasurement = rs.getDate("TIME_MEASUREMENT");
+        Calendar dateMeasurement = Calendar.getInstance();
+        dateMeasurement.setTimeInMillis(timeMeasurement.getTime());
+
+        java.sql.Date timeRecord = rs.getDate("DATE_RECORD");
+        Calendar dateRecord = Calendar.getInstance();
+        dateRecord.setTimeInMillis(timeRecord.getTime());
         
-        java.sql.Date dateRecord = rs.getDate("DATE_RECORD");
-        Calendar timeRecord = Calendar.getInstance();
-        timeRecord.setTimeInMillis(dateRecord.getTime());
+        java.sql.Date timeUpdate = rs.getDate("DATE_UPDATE");
+        Calendar dateUpdate = Calendar.getInstance();
+        dateUpdate.setTimeInMillis(timeUpdate.getTime());
         
-//        java.sql.Date dateUpdate = rs.getDate("DATE_UPDATE");
-//        Calendar timeUpdate = Calendar.getInstance();
-//        timeUpdate.setTimeInMillis(dateUpdate.getTime());
-        
-        bloodPressure = new BloodPressure(idBloodPressure, maxPressure, minPressure, timeMeasurement, timeRecord, null);
+        bloodPressure = new BloodPressure(idBloodPressure, maxPressure, minPressure, dateMeasurement, dateRecord, dateUpdate);
       }
 	  
 	 } catch (SQLException e) {
