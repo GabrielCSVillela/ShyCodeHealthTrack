@@ -11,25 +11,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.shycode.healthtrack.bean.Client;
-import br.com.shycode.healthtrack.dao.ClientDAO;
+import br.com.shycode.healthtrack.bean.Activity;
+import br.com.shycode.healthtrack.dao.ActivityDAO;
 import br.com.shycode.healthtrack.exception.DBException;
 import br.com.shycode.healthtrack.factory.DAOFactory;
 
 /**
- * Servlet implementation class CadastrarRestauranteServlet
+ * Servlet implementation class ActivityServlet
  */
-@WebServlet("/client")
-public class ClientServlet extends HttpServlet {
+@WebServlet("/activity")
+public class ActivityServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private ClientDAO daoClient;;
+	private ActivityDAO daoActivity;
 
 	@Override
 	public void init() throws ServletException {
 		super.init();
-		daoClient = DAOFactory.getClientDAO();
-
+		daoActivity = DAOFactory.getActivityDAO();
 	}
 
 	/**
@@ -55,21 +54,21 @@ public class ClientServlet extends HttpServlet {
 	}
 
 	private void list(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Client> list = daoClient.select();
-		request.setAttribute("clients", list);
+		List<Activity> list = daoActivity.select();
+		request.setAttribute("activities", list);
 		request.getRequestDispatcher("??.jsp").forward(request, response);
 	}
 
 	private void openFormUpdate(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int idClient = Integer.parseInt(request.getParameter("id"));
-		Client client = daoClient.selectById(idClient);
-		request.setAttribute("client", client);
+		int idActivity = Integer.parseInt(request.getParameter("id"));
+		Activity activity = daoActivity.selectById(idActivity);
+		request.setAttribute("activity", activity);
 	}
 
 	private void openFormRegister(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.getRequestDispatcher("create-account.jsp").forward(request, response);
+		request.getRequestDispatcher("register-activity.jsp").forward(request, response);
 	}
 
 	/**
@@ -96,10 +95,9 @@ public class ClientServlet extends HttpServlet {
 	}
 
 	public void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int idClient = Integer.parseInt(request.getParameter("codigo"));
+		int idActivity = Integer.parseInt(request.getParameter("id"));
 		try {
-			daoClient.delete(idClient);
-
+			daoActivity.delete(idActivity);
 			request.setAttribute("msg", "Cliente removido!");
 		} catch (DBException e) {
 			e.printStackTrace();
@@ -110,21 +108,21 @@ public class ClientServlet extends HttpServlet {
 
 	private void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			int idClient = Integer.parseInt(request.getParameter("id"));
-			String name = request.getParameter("first_name");
-			String lastName = request.getParameter("last_name");
-			String email = request.getParameter("email");
-			String password = request.getParameter("password");
-			String phone = request.getParameter("phone");
+			int idActivity = Integer.parseInt(request.getParameter("id"));
+			String nameActivity = request.getParameter("name_activity");
+			int calorie = Integer.parseInt(request.getParameter("calorie"));
 
-			SimpleDateFormat birthFormat = new SimpleDateFormat("dd/MM/yyyy");
-			Calendar dateBirth = Calendar.getInstance();
-			dateBirth.setTime(birthFormat.parse(request.getParameter("birthday")));
+			SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
+			Calendar timeStart = Calendar.getInstance();
+			timeStart.setTime(timeFormat.parse(request.getParameter("time_start")));
 
-			int height = Integer.parseInt(request.getParameter("height"));
+			Calendar timeEnd = Calendar.getInstance();
+			timeEnd.setTime(timeFormat.parse(request.getParameter("time_end")));
 
-			Client client = new Client(idClient, name, lastName, email, password, phone, dateBirth, height);
-			daoClient.update(client);
+			Calendar dateUpdate = Calendar.getInstance();
+
+			Activity activity = new Activity(idActivity, nameActivity, calorie, timeStart, timeEnd, dateUpdate);
+			daoActivity.update(activity);
 
 			request.setAttribute("msg", "Cliente atualizado!");
 		} catch (DBException db) {
@@ -141,22 +139,20 @@ public class ClientServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		try {
-			String name = request.getParameter("first_name");
-			String lastName = request.getParameter("last_name");
-			String email = request.getParameter("email");
-			String password = request.getParameter("password");
-			String phone = request.getParameter("phone");
+			String nameActivity = request.getParameter("name_activity");
+			int calorie = Integer.parseInt(request.getParameter("calorie"));
 
-			SimpleDateFormat birthFormat = new SimpleDateFormat("dd/MM/yyyy");
-			Calendar dateBirth = Calendar.getInstance();
-			dateBirth.setTime(birthFormat.parse(request.getParameter("birthday")));
+			SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
+			Calendar timeStart = Calendar.getInstance();
+			timeStart.setTime(timeFormat.parse(request.getParameter("time_start")));
 
-			int height = Integer.parseInt(request.getParameter("height"));
+			Calendar timeEnd = Calendar.getInstance();
+			timeEnd.setTime(timeFormat.parse(request.getParameter("time_end")));
 
 			Calendar dateRecord = Calendar.getInstance();
 
-			Client client = new Client(0, name, lastName, email, password, phone, dateBirth, height, dateRecord);
-			daoClient.insert(client);
+			Activity activity = new Activity(0, nameActivity, calorie, timeStart, timeEnd, dateRecord);
+			daoActivity.insert(activity);
 
 			request.setAttribute("msg", "Cliente cadastrado!");
 		} catch (DBException db) {

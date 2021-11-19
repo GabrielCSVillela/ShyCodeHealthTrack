@@ -49,8 +49,8 @@
 					<c:if test="${not empty erro }">
 						<div class="alert alert-danger">${erro}</div>
 					</c:if>
-					<form action="cliente" method="post">
-						<input type="hidden" value="cadastrar" name="acao">
+					<form action="client" method="post">
+						<input type="hidden" value="register" name="action">
 						<div class="row row-space">
 							<div class="col-2">
 								<div class="input-group">

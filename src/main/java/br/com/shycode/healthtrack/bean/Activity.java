@@ -2,8 +2,8 @@ package br.com.shycode.healthtrack.bean;
 
 import java.util.Calendar;
 
-public class Activity{
-	
+public class Activity {
+
 	@Override
 	public String toString() {
 		return "Activity [Id=" + Id + ", Name=" + Name + ", Calorie=" + Calorie + ", StartTime=" + StartTime
@@ -12,43 +12,42 @@ public class Activity{
 
 	// Propriedades
 	/**
-     * Id Atividade
-     */
+	 * Id Atividade
+	 */
 	private int Id;
-	
-	 /**
-     * Nome
-     */
+
+	/**
+	 * Nome
+	 */
 	private String Name;
 
 	/**
 	 * Caloria
 	 */
-	private float Calorie;
-	
-    /**
-     * Tempo Inicial
-     */
-	private  Calendar StartTime;
-	
-	 /**
-     * Tempo Final
-     */
+	private int Calorie;
+
+	/**
+	 * Tempo Inicial
+	 */
+	private Calendar StartTime;
+
+	/**
+	 * Tempo Final
+	 */
 	private Calendar EndTime;
-	
-	 /**
-     * Data Registro
-     */
+
+	/**
+	 * Data Registro
+	 */
 	private Calendar DateRecord;
-	
-	 /**
-     * Data Atualiza��o
-     */
+
+	/**
+	 * Data Atualiza��o
+	 */
 	private Calendar DateUpdate;
-	
-	
+
 	// Construtores
-	public Activity(int id, String name, float calorie, Calendar startTime, Calendar endTime, Calendar dateRecord) {
+	public Activity(int id, String name, int calorie, Calendar startTime, Calendar endTime, Calendar dateRecord) {
 		Id = id;
 		Name = name;
 		Calorie = calorie;
@@ -56,8 +55,20 @@ public class Activity{
 		EndTime = endTime;
 		DateRecord = dateRecord;
 	}
-	
-	public Activity(int id, String name, float calorie, Calendar startTime, Calendar endTime, Calendar dateRecord, Calendar dateUpdate) {
+
+	/**
+	 * Construtor para atualização do servlet
+	 * 
+	 * @param id
+	 * @param name
+	 * @param calorie
+	 * @param startTime
+	 * @param endTime
+	 * @param dateUpdate
+	 */
+
+	public Activity(int id, String name, int calorie, Calendar startTime, Calendar endTime, Calendar dateRecord,
+			Calendar dateUpdate) {
 		Id = id;
 		Name = name;
 		Calorie = calorie;
@@ -66,7 +77,7 @@ public class Activity{
 		DateRecord = dateRecord;
 		DateUpdate = dateUpdate;
 	}
-	
+
 	public Activity() {
 		super();
 	}
@@ -75,20 +86,20 @@ public class Activity{
 	public void register() {
 		Id = 1;
 	}
-	
+
 	public void remove() {
-	 	Id = 0;
-	 	StartTime = null;
-	 	EndTime = null;
-	 	DateRecord = null;
-	 	Name = null;
+		Id = 0;
+		StartTime = null;
+		EndTime = null;
+		DateRecord = null;
+		Name = null;
 	}
-	
+
 	public float calcCalorie() {
-		return Calorie;		
+		return Calorie;
 	}
-	
-	 // Getters e Setters
+
+	// Getters e Setters
 	public Calendar getStartTime() {
 		return StartTime;
 	}
@@ -125,11 +136,11 @@ public class Activity{
 		return Id;
 	}
 
-	public Float getCalorie() {
+	public int getCalorie() {
 		return Calorie;
 	}
 
-	public void setCalorie(Float calorie) {
+	public void setCalorie(int calorie) {
 		this.Calorie = calorie;
 	}
 
@@ -140,5 +151,5 @@ public class Activity{
 	public void setDateUpdate(Calendar dateUpdate) {
 		DateUpdate = dateUpdate;
 	}
-	
+
 }

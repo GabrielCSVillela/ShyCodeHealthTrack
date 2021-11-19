@@ -6,8 +6,8 @@
 <title>Home</title>
 <%@ include file="header.jsp"%>
 </head>
-<%@ include file="menu.jsp"%>
 <body>
+<%@ include file="menu.jsp"%>
 	<div class="container-lg">
 		<div class="d-flex justify-content-around m-auto pt-4">
 			<div class="text-center user-select-none">

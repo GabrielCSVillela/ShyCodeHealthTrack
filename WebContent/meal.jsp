@@ -11,19 +11,21 @@
 <%@ include file="menu.jsp"%>
 <body>
 
-  <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Cadastrar <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#">Listar</a>
-              </div>
-            </div>
-          </nav>
-    </div>
+	<div class="container">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<a class="nav-item nav-link active" href="meal.jsp">Listar</a>
+					<a class="nav-item nav-link" href="#">Cadastrar</a>
+				</div>
+			</div>
+		</nav>
+	</div>
 
 	<div style="width: 100%" class="list-restaurants">
 		<c:if test="${not empty msg }">
@@ -56,11 +58,12 @@
 			</c:forEach>
 		</table>
 	</div>
-	
-	<div class="footer-sub-pages" style="position: absolute; bottom: 0; width:100%;">
+
+	<div class="footer-sub-pages"
+		style="position: absolute; bottom: 0; width: 100%;">
 		<%@ include file="footer.jsp"%>
 	</div>
-		
-	
+
+
 </body>
 </html>
