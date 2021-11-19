@@ -29,12 +29,14 @@
 					name="calorie" id="id-valor" class="form-control" required>
 			</div>
 			<div class="form-group">
-				<label for="id-quantidade">Hora Início</label> <input type="datetime-local"
-					name="time_start" id="id-quantidade" class="form-control" required>
+				<label for="id-quantidade">Hora Início</label> <input
+					type="datetime-local" name="time_start" id="id-quantidade"
+					class="form-control" required>
 			</div>
 			<div class="form-group">
-				<label for="id-fabricacao">Hora Final</label> <input type="datetime-local"
-					name="time_end" id="id-fabricacao" class="form-control" required>
+				<label for="id-fabricacao">Hora Final</label> <input
+					type="datetime-local" name="time_end" id="id-fabricacao"
+					class="form-control" required>
 			</div>
 			<input type="submit" value="Salvar" class="btn btn-primary">
 		</form>

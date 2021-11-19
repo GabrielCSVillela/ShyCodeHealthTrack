@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,24 +11,23 @@
 <body>
 	<div class="container">
 		<h1>Cadastro de Produto</h1>
-		<form action="produto" method="post">
+		<c:if test="${not empty msg }">
+			<div class="alert alert-success">${msg}</div>
+		</c:if>
+		<c:if test="${not empty erro }">
+			<div class="alert alert-danger">${erro}</div>
+		</c:if>
+		<form action="meal" method="post">
+			<input type="hidden" value="register" name="action">
 			<div class="form-group">
-				<label for="id-nome">Nome</label> <input type="text" name="nome"
-					id="id-nome" class="form-control">
+				<label for="id-nome">Nome Refeição</label> <input type="text"
+					name="name_meal" id="id-nome" class="form-control">
 			</div>
 			<div class="form-group">
-				<label for="id-valor">Valor</label> <input type="text" name="valor"
-					id="id-valor" class="form-control">
+				<label for="id-valor">Total Calorias</label> <input type="text"
+					name="total_calorie" id="id-valor" class="form-control">
 			</div>
-			<div class="form-group">
-				<label for="id-quantidade">Quantidade</label> <input type="text"
-					name="quantidade" id="id-quantidade" class="form-control">
-			</div>
-			<div class="form-group">
-				<label for="id-fabricacao">Data de Fabricação</label> <input
-					type="text" name="fabricacao" id="id-fabricacao"
-					class="form-control">
-			</div>
+
 			<input type="submit" value="Salvar" class="btn btn-primary">
 		</form>
 	</div>
