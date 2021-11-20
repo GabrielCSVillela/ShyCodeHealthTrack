@@ -146,9 +146,11 @@ public class HealthServlet extends HttpServlet {
 			timeMeasurement.setTime(timeFormat.parse(request.getParameter("time_measurement")));
 
 			Calendar dateRecord = Calendar.getInstance();
+			
+			Calendar dateUpdate = Calendar.getInstance();
 
 			BloodPressure bloodPressure = new BloodPressure(0, minPress, maxPress, timeMeasurement,
-					dateRecord);
+					dateRecord, dateUpdate);
 			daoBloodPressure.insert(bloodPressure);
 
 			request.setAttribute("msg", "Pressão cadastrada!");

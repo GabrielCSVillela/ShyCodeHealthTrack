@@ -3,7 +3,6 @@ package br.com.shycode.healthtrack.controller;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -153,14 +152,7 @@ public class ActivityServlet extends HttpServlet {
 
 			Calendar dateRecord = Calendar.getInstance();
 			
-			Calendar timeUpdate = Calendar.getInstance();
-			timeUpdate.set(Calendar.YEAR, 1000);
-			timeUpdate.set(Calendar.MONTH, 0);
-			timeUpdate.set(Calendar.DAY_OF_WEEK, 1);
-			Date dt = timeUpdate.getTime();
-			
 			Calendar dateUpdate = Calendar.getInstance();
-			dateUpdate.setTime(dt);
 
 			Activity activity = new Activity(0, nameActivity, calorie, timeStart, timeEnd, dateRecord, dateUpdate);
 			daoActivity.insert(activity);

@@ -4,17 +4,11 @@ import java.util.Calendar;
 
 public class Activity {
 
-	@Override
-	public String toString() {
-		return "Activity [Id=" + Id + ", Name=" + Name + ", Calorie=" + Calorie + ", StartTime=" + StartTime
-				+ ", EndTime=" + EndTime + ", DateRecord=" + DateRecord + ", DateUpdate=" + DateUpdate + "]";
-	}
-
 	// Propriedades
 	/**
 	 * Id Atividade
 	 */
-	private int Id;
+	private int IdActivity;
 
 	/**
 	 * Nome
@@ -48,7 +42,7 @@ public class Activity {
 
 	// Construtores
 	public Activity(int id, String name, int calorie, Calendar startTime, Calendar endTime, Calendar dateRecord) {
-		Id = id;
+		IdActivity = id;
 		Name = name;
 		Calorie = calorie;
 		StartTime = startTime;
@@ -69,7 +63,7 @@ public class Activity {
 
 	public Activity(int id, String name, int calorie, Calendar startTime, Calendar endTime, Calendar dateRecord,
 			Calendar dateUpdate) {
-		Id = id;
+		IdActivity = id;
 		Name = name;
 		Calorie = calorie;
 		StartTime = startTime;
@@ -116,7 +110,7 @@ public class Activity {
 	}
 
 	public int getId() {
-		return Id;
+		return IdActivity;
 	}
 
 	public int getCalorie() {

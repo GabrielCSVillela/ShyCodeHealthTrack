@@ -40,19 +40,18 @@
 				<th>Calorias</th>
 				<th>Data</th>
 			</tr>
-			<c:forEach items="${restaurantes }" var="r">
+			<c:forEach items="${meals }" var="m">
 				<tr>
-					<td>${r.name}</td>
-					<td>${r.minPrice}</td>
-					<td>${r.CNPJ}</td>
-					<td>${r.category.name}</td>
-					<td><c:url value="cadastro" var="link">
-							<c:param name="acao" value="abrir-form-edicao" />
-							<c:param name="codigo" value="${r.idRestaurant}" />
+					<td>${m.nameMeal}</td>
+					<td>${m.calorie}</td>
+					<td>${m.date}</td>
+					<td><c:url value="meal" var="link">
+							<c:param name="action" value="open-form-update" />
+							<c:param name="id" value="${m.id}" />
 						</c:url> <a href="${link}" class="btn btn-primary btn-xs">Editar</a>
 						<button type="button" class="btn btn-danger btn-xs"
 							data-toggle="modal" data-target="#excluirModal"
-							onclick="codigoExcluir.value = ${r.idRestaurant}">
+							onclick="codigoExcluir.value = ${m.id}">
 							Excluir</button></td>
 				</tr>
 			</c:forEach>
