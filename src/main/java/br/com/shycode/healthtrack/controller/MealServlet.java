@@ -136,8 +136,10 @@ public class MealServlet extends HttpServlet {
 			int calorie = Integer.parseInt(request.getParameter("total_calorie"));
 
 			Calendar dateRecord = Calendar.getInstance();
+			
+			Calendar dateUpdate = Calendar.getInstance();
 
-			Meal meal = new Meal(0, nameMeal, calorie, dateRecord);
+			Meal meal = new Meal(0, nameMeal, calorie, dateRecord, dateUpdate);
 			daoMeal.insert(meal);
 
 			request.setAttribute("msg", "Refeição cadastrada!");

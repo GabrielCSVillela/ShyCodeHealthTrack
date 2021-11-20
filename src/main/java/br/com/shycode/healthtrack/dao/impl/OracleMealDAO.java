@@ -20,12 +20,14 @@ public class OracleMealDAO implements MealDAO {
   
       try {
         connection = ConnectionManager.getInstance().getConnection();
-        String sql = "INSERT INTO TAB_MEAL(ID_MEAL, NAME_MEAL, TOTAL_CALORIE, DATE_RECORD) VALUES (SQ_MEAL.NEXTVAL, ?, ?, ?)";
+        String sql = "INSERT INTO TAB_MEAL(ID_MEAL, NAME_MEAL, TOTAL_CALORIE, DATE_RECORD, DATE_UPDATE) VALUES (SQ_MEAL.NEXTVAL, ?, ?, ?, ?)";
         stmt = connection.prepareStatement(sql);
         stmt.setString(1, meal.getNameMeal());
         stmt.setInt(2, meal.getTotalCalorie());
-        java.sql.Date date = new java.sql.Date(meal.getDate().getTimeInMillis());
-        stmt.setDate(3, date);
+        java.sql.Date dateRecord = new java.sql.Date(meal.getDateRecord().getTimeInMillis());
+        stmt.setDate(3, dateRecord);
+        java.sql.Date dateUpdate = new java.sql.Date(meal.getDateUpdate().getTimeInMillis());
+        stmt.setDate(3, dateUpdate);
   
         stmt.executeUpdate();
       } catch (SQLException e) {
@@ -53,11 +55,15 @@ public class OracleMealDAO implements MealDAO {
 	          int idMeal = rs.getInt("ID_MEAL");
 	          String nameMeal = rs.getString("NAME_MEAL");
 	          int totalCalorie = rs.getInt("TOTAL_CALORIE");
-	          java.sql.Date data = rs.getDate("DATE_RECORD");
+	          java.sql.Date timeRecord = rs.getDate("DATE_RECORD");
 	          Calendar dateRecord = Calendar.getInstance();
-	          dateRecord.setTimeInMillis(data.getTime());
+	          dateRecord.setTimeInMillis(timeRecord.getTime());
 	          
-	          Meal meal = new Meal(idMeal, nameMeal, totalCalorie, dateRecord);
+	          java.sql.Date timeUpdate = rs.getDate("DATE_RECORD");
+	          Calendar dateUpdate = Calendar.getInstance();
+	          dateUpdate.setTimeInMillis(timeUpdate.getTime());
+	          
+	          Meal meal = new Meal(idMeal, nameMeal, totalCalorie, dateRecord, dateUpdate);
 	          
 	          list.add(meal);
 	        }
@@ -81,12 +87,12 @@ public class OracleMealDAO implements MealDAO {
       
         try {
       	connection = ConnectionManager.getInstance().getConnection();
-          String sql = "UPDATE TAB_MEAL SET NAME_MEAL = ?, TOTAL_CALORIE = ?, DATE_RECORD = ? WHERE ID_MEAL = ?";
+          String sql = "UPDATE TAB_MEAL SET NAME_MEAL = ?, TOTAL_CALORIE = ?, DATE_UPDATE = ? WHERE ID_MEAL = ?";
           stmt = connection.prepareStatement(sql);
           stmt.setString(1, meal.getNameMeal());
           stmt.setInt(2, meal.getTotalCalorie());
-          java.sql.Date dateRecord = new java.sql.Date(meal.getDate().getTimeInMillis());
-          stmt.setDate(3, dateRecord);
+          java.sql.Date dateUpdate = new java.sql.Date(meal.getDateUpdate().getTimeInMillis());
+          stmt.setDate(3, dateUpdate);
       
           stmt.executeUpdate();
         } catch (SQLException e) {
@@ -136,10 +142,16 @@ public class OracleMealDAO implements MealDAO {
             int idMeal = rs.getInt("ID_MEAL");
             String nameMeal = rs.getString("NAME_MEAL");
             int totalCalorie = rs.getInt("TOTAL_CALORIE");
-            java.sql.Date date = rs.getDate("DATE_RECORD");
-            Calendar dateRecord = Calendar.getInstance();
-            dateRecord.setTimeInMillis(date.getTime());
-            meal = new Meal(idMeal, nameMeal, totalCalorie, dateRecord);
+            
+	          java.sql.Date timeRecord = rs.getDate("DATE_RECORD");
+	          Calendar dateRecord = Calendar.getInstance();
+	          dateRecord.setTimeInMillis(timeRecord.getTime());
+	          
+	          java.sql.Date timeUpdate = rs.getDate("DATE_RECORD");
+	          Calendar dateUpdate = Calendar.getInstance();
+	          dateUpdate.setTimeInMillis(timeUpdate.getTime());
+	          
+            meal = new Meal(idMeal, nameMeal, totalCalorie, dateRecord, dateUpdate);
           }
           
         } catch (SQLException e) {

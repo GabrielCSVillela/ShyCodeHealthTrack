@@ -21,17 +21,33 @@ public class Meal {
 	private int TotalCalorie;
 
 	/**
-	 * Data 
+	 * Data record
 	 */
-	private Calendar Date;
+	private Calendar DateRecord;
+	
+	/**
+	 * Data record
+	 */
+	private Calendar DateUpdate;
 	
 	// Construtores
-	public Meal(int id, String nameMeal, int totalCalorie, Calendar date) {
+	public Meal(int id, String nameMeal, int totalCalorie, Calendar dateRecord, Calendar dateUpdate) {
 		Id = id;
 		NameMeal = nameMeal;
 		TotalCalorie = totalCalorie;
-		Date = date;
+		DateRecord = dateRecord;
+		DateUpdate = dateUpdate;
 	}
+
+	public Meal(int id, String nameMeal, int totalCalorie, Calendar dateUpdate) {
+		super();
+		Id = id;
+		NameMeal = nameMeal;
+		TotalCalorie = totalCalorie;
+		DateUpdate = dateUpdate;
+	}
+
+
 
 	public Meal() {
 		super();
@@ -63,13 +79,20 @@ public class Meal {
 		TotalCalorie = totalCalorie;
 	}
 
-	public Calendar getDate() {
-		return Date;
+	public Calendar getDateRecord() {
+		return DateRecord;
 	}
 
-	public void setDate(Calendar date) {
-		Date = date;
+	public void setDateRecord(Calendar dateRecord) {
+		DateRecord = dateRecord;
 	}
 
+	public Calendar getDateUpdate() {
+		return DateUpdate;
+	}
+
+	public void setDateUpdate(Calendar dateUpdate) {
+		DateUpdate = dateUpdate;
+	}
 	
 }

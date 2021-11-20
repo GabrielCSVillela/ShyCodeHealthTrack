@@ -43,8 +43,10 @@
 			<c:forEach items="${meals }" var="m">
 				<tr>
 					<td>${m.nameMeal}</td>
-					<td>${m.calorie}</td>
-					<td>${m.date}</td>
+					<td>${m.totalCalorie}</td>
+					<td><fmt:formatDate value="${a.dateRecord.time}"
+							pattern="dd/MM/yyyy hh:mm" /></td>
+					<td>
 					<td><c:url value="meal" var="link">
 							<c:param name="action" value="open-form-update" />
 							<c:param name="id" value="${m.id}" />
@@ -63,6 +65,31 @@
 		<%@ include file="footer.jsp"%>
 	</div>
 
+<!-- Modal -->
+	<div class="modal fade" id="excluirModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">Deseja realmente excluir o produto?</div>
+				<div class="modal-footer">
+					<form action="meal" method="post">
+						<input type="hidden" name="action" value="delete"> <input
+							type="hidden" name="id" id="codigoExcluir">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Cancelar</button>
+						<button type="submit" class="btn btn-danger">Excluir</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>
