@@ -21,7 +21,7 @@ public class OracleActivityDAO implements ActivityDAO {
 
 		try {
 			connection = ConnectionManager.getInstance().getConnection();
-			String sql = "INSERT INTO TAB_ACTIVITY(ID_ACTIVITY, NAME_ACTIVITY, CALORIE_ACTIVITY, START_TIME, END_TIME, DATE_RECORD) VALUES (SQ_ACTIVITY.NEXTVAL, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO TAB_ACTIVITY(ID_ACTIVITY, NAME_ACTIVITY, CALORIE_ACTIVITY, START_TIME, END_TIME, DATE_RECORD, DATE_UPDATE) VALUES (SQ_ACTIVITY.NEXTVAL, ?, ?, ?, ?, ?, ?)";
 			stmt = connection.prepareStatement(sql);
 			stmt.setString(1, activity.getName());
 			stmt.setInt(2, activity.getCalorie());
@@ -31,6 +31,8 @@ public class OracleActivityDAO implements ActivityDAO {
 			stmt.setDate(4, endTime);
 			java.sql.Date dateRecord = new java.sql.Date(activity.getDateRecord().getTimeInMillis());
 			stmt.setDate(5, dateRecord);
+			java.sql.Date dateUpdate = new java.sql.Date(activity.getDateUpdate().getTimeInMillis());
+			stmt.setDate(6, dateUpdate);
 
 			stmt.executeUpdate();
 		} catch (SQLException e) {

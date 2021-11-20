@@ -55,7 +55,7 @@ public class MealServlet extends HttpServlet {
 	private void list(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Meal> list = daoMeal.select();
 		request.setAttribute("meals", list);
-		request.getRequestDispatcher("??.jsp").forward(request, response);
+		request.getRequestDispatcher("meal.jsp").forward(request, response);
 	}
 
 	private void openFormUpdate(HttpServletRequest request, HttpServletResponse response)
@@ -63,6 +63,7 @@ public class MealServlet extends HttpServlet {
 		int idMeal = Integer.parseInt(request.getParameter("id"));
 		Meal meal = daoMeal.selectById(idMeal);
 		request.setAttribute("meal", meal);
+		request.getRequestDispatcher("update-meal.jsp").forward(request, response);
 	}
 
 	private void openFormRegister(HttpServletRequest request, HttpServletResponse response)

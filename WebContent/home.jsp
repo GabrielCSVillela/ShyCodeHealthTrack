@@ -11,7 +11,7 @@
 	<div class="container-lg">
 		<div class="d-flex justify-content-around m-auto pt-4">
 			<div class="text-center user-select-none">
-				<a class="navbar-brand" href="activity.jsp"> <img
+				<a class="navbar-brand" href="activity?action=list"> <img
 					src="resources/images/activity.png" alt="" width="280" height="500"
 					class="d-inline-block align-text-bottom">
 				</a>
@@ -19,7 +19,7 @@
 			</div>
 
 			<div class="text-center user-select-none">
-				<a class="navbar-brand" href="meal.jsp"> <img
+				<a class="navbar-brand" href="meal?action=list"> <img
 					src="resources/images/meal.png" alt="" width="280" height="500"
 					class="d-inline-block align-text-bottom">
 				</a>
@@ -27,7 +27,7 @@
 			</div>
 
 			<div class="text-center user-select-none">
-				<a class="navbar-brand" href="health.jsp"> <img
+				<a class="navbar-brand" href="health?action=list"> <img
 					src="resources/images/health.png" alt="" width="280" height="500"
 					class="d-inline-block align-text-bottom">
 				</a>

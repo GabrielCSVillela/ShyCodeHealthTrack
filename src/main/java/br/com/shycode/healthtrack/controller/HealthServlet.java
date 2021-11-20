@@ -56,7 +56,7 @@ public class HealthServlet extends HttpServlet {
 	private void list(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<BloodPressure> list = daoBloodPressure.select();
 		request.setAttribute("bloodPressures", list);
-		request.getRequestDispatcher("??.jsp").forward(request, response);
+		request.getRequestDispatcher("health.jsp").forward(request, response);
 	}
 
 	private void openFormUpdate(HttpServletRequest request, HttpServletResponse response)
@@ -64,6 +64,7 @@ public class HealthServlet extends HttpServlet {
 		int idBloodPressure = Integer.parseInt(request.getParameter("id"));
 		BloodPressure bloodPressure = daoBloodPressure.selectById(idBloodPressure);
 		request.setAttribute("bloodPressure", bloodPressure);
+		request.getRequestDispatcher("update-health.jsp").forward(request, response);
 	}
 
 	private void openFormRegister(HttpServletRequest request, HttpServletResponse response)

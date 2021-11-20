@@ -5,14 +5,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <title>Activity</title>
 <%@ include file="header.jsp"%>
 </head>
-<%@ include file="menu.jsp"%>
-</head>
 <body>
-
+	<%@ include file="menu.jsp"%>
 	<div class="container">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -22,7 +19,7 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<a class="nav-item nav-link active" href="activity.jsp">Listar</a> 
+					<a class="nav-item nav-link active" href="activity.jsp">Listar</a>
 					<a class="nav-item nav-link" href="register-activity.jsp">Cadastrar</a>
 				</div>
 			</div>
@@ -30,32 +27,19 @@
 	</div>
 
 	<div style="width: 100%" class="list-restaurants">
-		<c:if test="${not empty msg }">
-			<div class="alert alert-success">${msg}</div>
-		</c:if>
-		<c:if test="${not empty erro }">
-			<div class="alert alert-danger">${erro}</div>
-		</c:if>
 		<table class="table table-striped">
 			<tr>
 				<th>Atividade</th>
-				<th>Duração</th>
+				<th>Calorias</th>
 				<th>Data</th>
+				<th></th>
 			</tr>
-			<c:forEach items="${restaurantes }" var="r">
+			<c:forEach items="${activities }" var="a">
 				<tr>
-					<td>${r.name}</td>
-					<td>${r.minPrice}</td>
-					<td>${r.CNPJ}</td>
-					<td>${r.category.name}</td>
-					<td><c:url value="cadastro" var="link">
-							<c:param name="acao" value="abrir-form-edicao" />
-							<c:param name="codigo" value="${r.idRestaurant}" />
-						</c:url> <a href="${link}" class="btn btn-primary btn-xs">Editar</a>
-						<button type="button" class="btn btn-danger btn-xs"
-							data-toggle="modal" data-target="#excluirModal"
-							onclick="codigoExcluir.value = ${r.idRestaurant}">
-							Excluir</button></td>
+					<td>${a.name}</td>
+					<td>${a.calorie}</td>
+					<td><fmt:formatDate value="${a.dateRecord.time}"
+							pattern="dd/MM/yyyy" /></td>
 				</tr>
 			</c:forEach>
 		</table>
@@ -64,9 +48,6 @@
 		style="position: absolute; bottom: 0; width: 100%;">
 		<%@ include file="footer.jsp"%>
 	</div>
-
-
-
-
 </body>
 </html>
+

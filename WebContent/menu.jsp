@@ -23,9 +23,9 @@
 			<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 					<li class="nav-item active"><a class="nav-link" href="home.jsp">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="activity.jsp">Atividade</a></li>
-					<li class="nav-item"><a class="nav-link" href="meal.jsp">Alimentação</a></li>
-					<li class="nav-item"><a class="nav-link" href="health.jsp">Saúde</a></li>
+					<li class="nav-item"><a class="nav-link" href="activity?action=list">Atividade</a></li>
+					<li class="nav-item"><a class="nav-link" href="meal?action=list">Alimentação</a></li>
+					<li class="nav-item"><a class="nav-link" href="health?action=list">Saúde</a></li>
 				</ul>
 			</div>
 			</nav>

@@ -82,23 +82,6 @@ public class Activity {
 		super();
 	}
 
-	// M�todos
-	public void register() {
-		Id = 1;
-	}
-
-	public void remove() {
-		Id = 0;
-		StartTime = null;
-		EndTime = null;
-		DateRecord = null;
-		Name = null;
-	}
-
-	public float calcCalorie() {
-		return Calorie;
-	}
-
 	// Getters e Setters
 	public Calendar getStartTime() {
 		return StartTime;

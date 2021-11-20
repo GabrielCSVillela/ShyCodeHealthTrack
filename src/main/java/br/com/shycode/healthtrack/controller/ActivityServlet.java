@@ -3,6 +3,7 @@ package br.com.shycode.healthtrack.controller;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -56,7 +57,7 @@ public class ActivityServlet extends HttpServlet {
 	private void list(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Activity> list = daoActivity.select();
 		request.setAttribute("activities", list);
-		request.getRequestDispatcher("??.jsp").forward(request, response);
+		request.getRequestDispatcher("activity.jsp").forward(request, response);
 	}
 
 	private void openFormUpdate(HttpServletRequest request, HttpServletResponse response)
@@ -64,6 +65,7 @@ public class ActivityServlet extends HttpServlet {
 		int idActivity = Integer.parseInt(request.getParameter("id"));
 		Activity activity = daoActivity.selectById(idActivity);
 		request.setAttribute("activity", activity);
+		request.getRequestDispatcher("update-activity.jsp").forward(request, response);
 	}
 
 	private void openFormRegister(HttpServletRequest request, HttpServletResponse response)
@@ -150,8 +152,17 @@ public class ActivityServlet extends HttpServlet {
 			timeEnd.setTime(timeFormat.parse(request.getParameter("time_end")));
 
 			Calendar dateRecord = Calendar.getInstance();
+			
+			Calendar timeUpdate = Calendar.getInstance();
+			timeUpdate.set(Calendar.YEAR, 1000);
+			timeUpdate.set(Calendar.MONTH, 0);
+			timeUpdate.set(Calendar.DAY_OF_WEEK, 1);
+			Date dt = timeUpdate.getTime();
+			
+			Calendar dateUpdate = Calendar.getInstance();
+			dateUpdate.setTime(dt);
 
-			Activity activity = new Activity(0, nameActivity, calorie, timeStart, timeEnd, dateRecord);
+			Activity activity = new Activity(0, nameActivity, calorie, timeStart, timeEnd, dateRecord, dateUpdate);
 			daoActivity.insert(activity);
 
 			request.setAttribute("msg", "Atividade cadastrada!");
