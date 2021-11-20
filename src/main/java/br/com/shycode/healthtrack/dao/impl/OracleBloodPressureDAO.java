@@ -21,7 +21,7 @@ private Connection connection;
   
       try {
     	connection = ConnectionManager.getInstance().getConnection();
-        String sql = "INSERT INTO TAB_BLOOD_PRESSURE(ID_BLOOD_PRESSURE, MAX_PRESSURE, MIN_PRESSURE, TIME_MEASUREMENT, DATE_RECORD) VALUES (SQ_ACTIVITY.NEXTVAL, ?, ?, ?, ?)";
+        String sql = "INSERT INTO TAB_BLOOD_PRESSURE(ID_BLOOD_PRESSURE, MAX_PRESSURE, MIN_PRESSURE, TIME_MEASUREMENT, DATE_RECORD, DATE_UPDATE) VALUES (SQ_ACTIVITY.NEXTVAL, ?, ?, ?, ?, ?)";
         stmt = connection.prepareStatement(sql);
         stmt.setFloat(1, bloodPressure.getMaxPressure());
         stmt.setFloat(2, bloodPressure.getMinPressure());
@@ -29,6 +29,8 @@ private Connection connection;
         stmt.setDate(3, timeMeasurement);
         java.sql.Date dateRecord = new java.sql.Date(bloodPressure.getDateRecord().getTimeInMillis());
         stmt.setDate(4, dateRecord);
+        java.sql.Date dateUpdate = new java.sql.Date(bloodPressure.getDateUpdate().getTimeInMillis());
+        stmt.setDate(5, dateUpdate);
   
         stmt.executeUpdate();
       } catch (SQLException e) {

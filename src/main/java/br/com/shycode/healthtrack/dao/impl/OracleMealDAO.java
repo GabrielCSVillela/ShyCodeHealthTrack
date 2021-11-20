@@ -27,7 +27,7 @@ public class OracleMealDAO implements MealDAO {
         java.sql.Date dateRecord = new java.sql.Date(meal.getDateRecord().getTimeInMillis());
         stmt.setDate(3, dateRecord);
         java.sql.Date dateUpdate = new java.sql.Date(meal.getDateUpdate().getTimeInMillis());
-        stmt.setDate(3, dateUpdate);
+        stmt.setDate(4, dateUpdate);
   
         stmt.executeUpdate();
       } catch (SQLException e) {

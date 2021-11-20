@@ -10,7 +10,23 @@
 <%@ include file="menu.jsp"%>
 <body>
 	<div class="container">
-		<h1>Cadastro de Produto</h1>
+		<div class="container">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarNavAltMarkup"
+					aria-controls="navbarNavAltMarkup" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+					<div class="navbar-nav">
+						<a class="nav-item nav-link active" href="meal?action=list">Listar</a> <a
+							class="nav-item nav-link" href="register-meal.jsp">Cadastrar</a>
+					</div>
+				</div>
+			</nav>
+		</div>
+		<h2>Cadastro de Refeição</h2>
 		<c:if test="${not empty msg }">
 			<div class="alert alert-success">${msg}</div>
 		</c:if>

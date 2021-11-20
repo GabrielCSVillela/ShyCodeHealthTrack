@@ -8,9 +8,9 @@
 <title>Insert title here</title>
 <%@ include file="header.jsp"%>
 </head>
-<%@ include file="menu.jsp"%>
-<body>
 
+<body>
+	<%@ include file="menu.jsp"%>
 	<div class="container">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -20,14 +20,15 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<a class="nav-item nav-link active" href="meal.jsp">Listar</a>
+					<a class="nav-item nav-link active" href="meal?action=list">Listar</a>
 					<a class="nav-item nav-link" href="register-meal.jsp">Cadastrar</a>
 				</div>
 			</div>
 		</nav>
 	</div>
 
-	<div style="width: 100%" class="list-restaurants">
+	<h2>Listagem Refeições</h2>
+	<div style="width: 100%" class="list-meals">
 		<c:if test="${not empty msg }">
 			<div class="alert alert-success">${msg}</div>
 		</c:if>
@@ -53,8 +54,7 @@
 						</c:url> <a href="${link}" class="btn btn-primary btn-xs">Editar</a>
 						<button type="button" class="btn btn-danger btn-xs"
 							data-toggle="modal" data-target="#excluirModal"
-							onclick="codigoExcluir.value = ${m.id}">
-							Excluir</button></td>
+							onclick="codigoExcluir.value = ${m.id}">Excluir</button></td>
 				</tr>
 			</c:forEach>
 		</table>
@@ -65,7 +65,7 @@
 		<%@ include file="footer.jsp"%>
 	</div>
 
-<!-- Modal -->
+	<!-- Modal -->
 	<div class="modal fade" id="excluirModal" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
