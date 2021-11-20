@@ -37,16 +37,12 @@
 			</tr>
 			<c:forEach items="${bloodPressures }" var="bp">
 				<tr>
-					<td>${bp.timeMeasurement}</td>
+					<td>
+						<fmt:formatDate value="${bp.timeMeasurement.time}" pattern="dd/MM/yyyy hh:mm" />
+					</td>
 					<td>${bp.minPressure}</td>
 					<td>${bp.maxPressure}</td>
-					<td>
-					<!--
-					<c:url value="cadastro" var="link">
-						<c:param name="acao" value="abrir-form-edicao" />
-						<c:param name="codigo" value="${bp.idRestaurant}" />
-						 </c:url> <a href="${link}" class="btn btn-primary btn-xs">Editar</a> 
-					-->	
+					<td>	
 						<button type="button" class="btn btn-danger btn-xs"
 							data-toggle="modal" data-target="#excluirModal"
 							onclick="codigoExcluir.value = ${bp.id}">
@@ -59,6 +55,32 @@
 	<div class="footer-sub-pages"
 		style="position: absolute; bottom: 0; width: 100%;">
 		<%@ include file="footer.jsp"%>
+	</div>
+	
+	<!-- Modal -->
+	<div class="modal fade" id="excluirModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">Deseja realmente excluir a pressão?</div>
+				<div class="modal-footer">
+					<form action="health" method="post">
+						<input type="hidden" name="action" value="delete"> <input
+							type="hidden" name="id" id="codigoExcluir">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Cancelar</button>
+						<button type="submit" class="btn btn-danger">Excluir</button>
+					</form>
+				</div>
+			</div>
+		</div>
 	</div>
 
 </body>
