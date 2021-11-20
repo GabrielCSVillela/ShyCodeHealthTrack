@@ -123,7 +123,7 @@ public class HealthServlet extends HttpServlet {
 					dateUpdate);
 			daoBloodPressure.update(bloodPressure);
 
-			request.setAttribute("msg", "Pressão atualizada!");
+			request.setAttribute("msg", "Pressao atualizada!");
 		} catch (DBException db) {
 			db.printStackTrace();
 			request.setAttribute("erro", "Erro ao atualizar");
@@ -153,7 +153,7 @@ public class HealthServlet extends HttpServlet {
 					dateRecord, dateUpdate);
 			daoBloodPressure.insert(bloodPressure);
 
-			request.setAttribute("msg", "Pressão cadastrada!");
+			request.setAttribute("msg", "Pressao cadastrada!");
 		} catch (DBException db) {
 			db.printStackTrace();
 			request.setAttribute("erro", "Erro ao cadastrar");
