@@ -43,10 +43,17 @@
 					<td>${bp.minPressure}</td>
 					<td>${bp.maxPressure}</td>
 					<td>	
+						<c:url value="health" var="link">
+							<c:param name="action" value="open-form-update" />
+							<c:param name="id" value="${bp.id}" />
+						</c:url> 
+						<a href="${link}" class="btn btn-primary btn-xs">Editar</a>
 						<button type="button" class="btn btn-danger btn-xs"
 							data-toggle="modal" data-target="#excluirModal"
 							onclick="codigoExcluir.value = ${bp.id}">
-							Excluir</button></td>
+							Excluir
+						</button>
+					</td>
 				</tr>
 			</c:forEach>
 		</table>

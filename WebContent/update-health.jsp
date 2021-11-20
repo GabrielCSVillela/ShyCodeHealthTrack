@@ -12,11 +12,9 @@
 
 
 	<div class="container">
-		<form class="form-restaurant" action="cadastro" method="post">
-			<input type="hidden" value="editar" name="acao"> <input
-				type="hidden" value="${restaurantes.idRestaurant}" name="codigo">
-			<input type="hidden" value="${restaurantes.address.idAddress}"
-				name="codigoEndereco">
+		<form class="form-restaurant" action="health" method="post">
+			<input type="hidden" value="update" name="action"> <input
+				type="hidden" value="${bloodPressure.id}" name="id">
 
 			<div style="display: flex; margin-bottom: 10px;">
 				<h5 style="margin-left: 12px;" class="sub-title-food">Saúde</h5>
@@ -24,21 +22,21 @@
 			<div class="form-row">
 				<div class="col-md-4 mb-3">
 					<label for="validationServer01">Pressão mínima</label> <input
-						type="text" class="form-control" value="${restaurantes.name}"
-						id="id-nome" name="nome" placeholder="Pressão mínima" required>
+						type="text" class="form-control" value="${bloodPressure.minPressure}"
+						id="id-nome" name="min_press" placeholder="Pressão mínima" required>
 					<div class="invalid-tooltip">Digite a pressão mínima</div>
 				</div>
 				<div class="col-md-4 mb-3">
 					<label for="validationServer01">Pressão máxima</label> <input
-						type="text" class="form-control" value="${restaurantes.CNPJ}"
-						id="id-caloria" name="caloria" placeholder="Pressão máxima"
+						type="text" class="form-control" value="${bloodPressure.maxPressure}"
+						id="id-caloria" name="max_press" placeholder="Pressão máxima"
 						required>
 					<div class="invalid-tooltip">Digite a pressão máxima</div>
 				</div>
 				<div class="col-md-4 mb-3">
 					<label for="validationServer01">Data e hora medição</label> <input
-						type="text" class="form-control" value="${restaurantes.minPrice}"
-						id="id-descricao" name="descricao" placeholder="Data e hora"
+						type="datetime-local" class="form-control" value="${bloodPressure.timeMeasurement.time}"
+						id="id-descricao" name="time_measurement" placeholder="Data e hora"
 						required>
 					<div class="invalid-tooltip">Digite a data e hora</div>
 

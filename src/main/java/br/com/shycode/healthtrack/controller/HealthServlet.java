@@ -113,7 +113,7 @@ public class HealthServlet extends HttpServlet {
 			Float minPress = Float.parseFloat(request.getParameter("min_press"));
 			Float maxPress = Float.parseFloat(request.getParameter("max_press"));
 
-			SimpleDateFormat timeFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
+			SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
 			Calendar timeMeasurement = Calendar.getInstance();
 			timeMeasurement.setTime(timeFormat.parse(request.getParameter("time_measurement")));
 
