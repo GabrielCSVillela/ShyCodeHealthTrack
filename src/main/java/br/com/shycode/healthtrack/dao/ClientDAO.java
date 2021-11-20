@@ -16,5 +16,11 @@ public interface ClientDAO {
 	void delete(int id) throws DBException;
 
 	Client selectById(int idSearch);
+	
+	boolean validateClient(Client client);
 
 }
+
+
+	
+	

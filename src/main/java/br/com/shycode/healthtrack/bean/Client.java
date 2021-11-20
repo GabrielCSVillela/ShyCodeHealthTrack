@@ -2,6 +2,8 @@ package br.com.shycode.healthtrack.bean;
 
 import java.util.Calendar;
 
+import br.com.shycode.healthtrack.util.CriptografiaUtils;
+
 public class Client {
 	
 	//Propriedades
@@ -68,15 +70,23 @@ public class Client {
 		IdClient = idClient;
 		Name = name;
 		LastName = lastName;
-		Email = email;
-		Password = password;
+		this.Email = email;
+		setSenha(password);
 		Phone = phone;
 		DateOfBirth = dateOfBirth;
 		this.height = height;
 		DateRecord = dateRecord;
 	}
+    
 
-    /**
+    public Client(String email, String password) {
+		super();
+		this.Email = email;
+		setSenha(password);
+	}
+
+
+	/**
      *  Construtor para edição. Não pode ter a edição do dia de criação
      * @param idClient2
      * @param name2
@@ -158,5 +168,13 @@ public class Client {
 
 	public void setDateRecord(Calendar dateRecord) {
 		DateRecord = dateRecord;
+	}
+	
+  	public void setSenha(String password) {
+		try {
+			this.Password = CriptografiaUtils.criptografar(password);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
