@@ -45,7 +45,7 @@
 				<tr>
 					<td>${m.nameMeal}</td>
 					<td>${m.totalCalorie}</td>
-					<td><fmt:formatDate value="${a.dateRecord.time}"
+					<td><fmt:formatDate value="${m.dateRecord.time}"
 							pattern="dd/MM/yyyy hh:mm" /></td>
 					<td>
 					<td><c:url value="meal" var="link">
