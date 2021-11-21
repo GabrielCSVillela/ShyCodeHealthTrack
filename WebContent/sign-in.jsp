@@ -10,7 +10,7 @@
 <body class="sign-in">
 	<div class="box-sign-in w-50 h-50 rounded"
 		style="background-color: #FFFFFF; padding: 20px; magin: auto;">
-		<form class="form-sign-in ">
+		<form class="form-sign-in" action="login" method="post">
 		<div class="login-img-sign-in" style="text-align:center;">
 			<img class="mb-4" src="resources/images/logo.png" alt="" width="72"
 				height="72">
