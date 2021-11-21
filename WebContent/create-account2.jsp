@@ -70,8 +70,8 @@
 			</div>
 		</div>
 		<div class="create-account-button" style="text-align:center;">
-		<button class="btn btn-primary" type="submit" >Criar Conta</button>
-		<a class="btn btn-secondary" href="sign-in.jsp" >Já tenho uma conta</a>
+		<button class="btn btn-primary border-white" type="submit" style="background-color: #0C7797; color: #A3E1D2;" >Criar Conta</button>
+		<a class="btn btn-secondary border-white" href="sign-in.jsp" style="background-color: #A3E1D2; color: #0C7797;" >Já tenho uma conta</a>
 		</div>
 		
 	</form>

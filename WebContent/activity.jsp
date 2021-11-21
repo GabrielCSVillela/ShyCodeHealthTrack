@@ -25,7 +25,7 @@
 			</div>
 		</nav>
 	</div>
-
+	<h2 style="text-align: center;">Atividades</h2>
 	<div style="width: 100%" class="list-restaurants">
 		<table class="table table-striped">
 			<tr>
@@ -39,11 +39,12 @@
 					<td>${a.name}</td>
 					<td>${a.calorie}</td>
 					<td><fmt:formatDate value="${a.dateRecord.time}"
-							pattern="dd/MM/yyyy hh:mm" /></td>
+							pattern="yyyy/MM/dd HH:mm:ss" /></td>
 					<td>
 						<button type="button" class="btn btn-danger btn-xs"
 							data-toggle="modal" data-target="#excluirModal"
-							onclick="codigoExcluir.value = ${a.id}">Excluir</button></td>
+							onclick="codigoExcluir.value = ${a.id}">Excluir</button>
+					</td>
 				</tr>
 			</c:forEach>
 		</table>

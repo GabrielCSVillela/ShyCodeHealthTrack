@@ -20,38 +20,33 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<a class="nav-item nav-link active" href=weight?action=list>Listar</a> 
+					<a class="nav-item nav-link active" href=weight?action=list>Listar</a>
 					<a class="nav-item nav-link" href="register-weight.jsp">Cadastrar</a>
 				</div>
 			</div>
 		</nav>
 	</div>
 
+	<h2 style="text-align: center;">Pesos</h2>
 	<div style="width: 100%" class="list-restaurants">
-		
+
 		<table class="table table-striped">
 			<tr>
-				<th>Data e Hora</th>
-				<th>Valor do Peso</th>
+				<th>Dia pesagem</th>
+				<th>Peso (kg)</th>
 			</tr>
 			<c:forEach items="${weights }" var="w">
 				<tr>
-					<td>
-						<fmt:formatDate value="${w.dateMeasurement.time}" pattern="dd/MM/yyyy" />
-					</td>
+					<td><fmt:formatDate value="${w.dateMeasurement.time}"
+							pattern="dd/MM/yyyy" /></td>
 					<td>${w.value}</td>
-					<td>	
-						<c:url value="weight" var="link">
+					<td><c:url value="weight" var="link">
 							<c:param name="action" value="open-form-update" />
 							<c:param name="id" value="${w.id}" />
-						</c:url> 
-						<a href="${link}" class="btn btn-primary btn-xs">Editar</a>
+						</c:url> <a href="${link}" class="btn btn-primary btn-xs">Editar</a>
 						<button type="button" class="btn btn-danger btn-xs"
 							data-toggle="modal" data-target="#excluirModal"
-							onclick="codigoExcluir.value = ${w.id}">
-							Excluir
-						</button>
-					</td>
+							onclick="codigoExcluir.value = ${w.id}">Excluir</button></td>
 				</tr>
 			</c:forEach>
 		</table>
@@ -61,7 +56,7 @@
 		style="position: absolute; bottom: 0; width: 100%;">
 		<%@ include file="footer.jsp"%>
 	</div>
-	
+
 	<!-- Modal -->
 	<div class="modal fade" id="excluirModal" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">

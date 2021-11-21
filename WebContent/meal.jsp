@@ -27,7 +27,7 @@
 		</nav>
 	</div>
 
-	<h2>Listagem Refeições</h2>
+	<h2 style="text-align: center;">Refeições</h2>
 	<div style="width: 100%" class="list-meals">
 		<c:if test="${not empty msg }">
 			<div class="alert alert-success">${msg}</div>
@@ -46,7 +46,7 @@
 					<td>${m.nameMeal}</td>
 					<td>${m.totalCalorie}</td>
 					<td><fmt:formatDate value="${m.dateRecord.time}"
-							pattern="dd/MM/yyyy hh:mm" /></td>
+							pattern="yyyy/MM/dd HH:mm:ss" /></td>
 					<td>
 					<td><c:url value="meal" var="link">
 							<c:param name="action" value="open-form-update" />

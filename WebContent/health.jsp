@@ -27,6 +27,7 @@
 		</nav>
 	</div>
 
+<h2 style="text-align: center;">Pressões</h2>
 	<div style="width: 100%" class="list-restaurants">
 		
 		<table class="table table-striped">
@@ -38,7 +39,7 @@
 			<c:forEach items="${bloodPressures }" var="bp">
 				<tr>
 					<td>
-						<fmt:formatDate value="${bp.timeMeasurement.time}" pattern="dd/MM/yyyy hh:mm" />
+						<fmt:formatDate value="${bp.timeMeasurement.time}" pattern="yyyy/MM/dd HH:mm:ss" />
 					</td>
 					<td>${bp.minPressure}</td>
 					<td>${bp.maxPressure}</td>
