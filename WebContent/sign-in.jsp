@@ -17,16 +17,16 @@
 			<h3 class="mb-3 font-weight-normal">Login</h3>
 			</div>
 			<label for="inputEmail" class="sr-only">Endereço de Email</label> <input
-				type="email" id="inputEmail" class="form-control"
+				type="email" id="inputEmail" class="form-control my-2"
 				placeholder="Email" name="email" autofocus> <label
 				for="inputPassword" class="sr-only">Senha</label> <input
-				type="password" id="inputPassword" class="form-control"
+				type="password" id="inputPassword" class="form-control my-2"
 				placeholder="Senha" name="password">
 
-			<div class="buttons-sign-in">
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
-				<a class="btn btn-lg btn-secondary btn-block"
-					href="create-account2.jsp">Cria uma conta</a>
+			<div class="buttons-sign-in pt-3" style="text-align: center;">
+				<button class="btn btn-lg btn-primary btn-block border-white" style="background-color: #0C7797; color: #A3E1D2;" type="submit">Entrar</button>
+				<a class="btn btn-lg btn-secondary btn-block border-white"
+					style="background-color: #A3E1D2; color: #0C7797;" href="create-account2.jsp">Criar uma conta</a>
 			</div>
 		</form>
 	</div>

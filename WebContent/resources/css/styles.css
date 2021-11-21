@@ -12,17 +12,7 @@ img {
 	width: 100% \9;
 }
 
-.create-account {
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-align: center;
-	align-items: center;
-	padding-top: 40 px;
-	padding-bottom: 40 px;
-	justify-content: center;
-}
-
-.sign-in {
+.sign-in, .create-account {
 	display: -ms-flexbox;
 	display: flex;
 	-ms-flex-align: center;
