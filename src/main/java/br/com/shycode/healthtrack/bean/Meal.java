@@ -48,14 +48,8 @@ public class Meal {
 	}
 
 
-
 	public Meal() {
 		super();
-	}
-
-	//M�todos
-	public void Register() {
-		Id = 1;
 	}
 	
 	//Gets e Sets
