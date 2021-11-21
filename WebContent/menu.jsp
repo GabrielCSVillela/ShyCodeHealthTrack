@@ -4,6 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="resources/css/styles.css">
+	<link rel="stylesheet" href="resources/css/bootstrap.css">
+</head>
 <body>
 	<div class="container-fluid">
 		<header
@@ -45,7 +48,7 @@
 			</nav>
 
 			<!-- Usuario e drop down para opcoes -->
-			<c:if test="${empty user }">
+			<!--<c:if test="${empty user }">
 				<span class="navbar-text text-danger" style="margin-right: 10px">
 					${erro } </span>
 				<form class="form-inline my-2 my-lg-0" action="login" method="post">
@@ -54,12 +57,12 @@
 						type="password" name="password" placeholder="Senha">
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Entrar</button>
 				</form>
-			</c:if>
-			<c:if test="${not empty user }">
-				<span class="navbar-text"> ${user } <a href="login"
-					class="btn btn-outline-primary my-2 my-sm-0">Sair</a>
+			</c:if>-->
+	
+				<span class="navbar-text">
+				<a href="myprofile.jsp"
+					class="btn btn-outline-primary my-2 my-sm-0">Meu Perfil</a>
 				</span>
-			</c:if>
 		</header>
 	</div>
 </body>
