@@ -15,7 +15,10 @@ public class Weight {
 	 */
 	private float Value;
 	
-	
+    /**
+     * Data de Nascimento
+     */
+    private Calendar DateMeasurement;
 	
 	/**
 	 * Data criacao
@@ -27,20 +30,24 @@ public class Weight {
 	private Calendar DateUpdate;
 	
 	// Construtores
-	public Weight(int id, float value, Calendar dateRecord, Calendar dateUpdate) {
-		Id = 0;
+	public Weight(int id, float value, Calendar DateMeasurement, Calendar dateRecord, Calendar dateUpdate) {
+		Id = id;
 		Value = value;
+		this.DateMeasurement = DateMeasurement;
 		DateRecord = dateRecord;
 		DateUpdate = dateUpdate;
 	}
 
-	public Weight(int id, float value, Calendar dateUpdate) {
+	public Weight(int id, float value, Calendar DateMeasurement, Calendar dateUpdate) {
 		super();
 		Id = id;
 		Value = value;
+		this.DateMeasurement = DateMeasurement;
 		DateUpdate = dateUpdate;
 	}
 	
+
+
 	public Weight() {
 		super();
 	}
@@ -76,6 +83,14 @@ public class Weight {
 
 	public void setDateUpdate(Calendar dateUpdate) {
 		DateUpdate = dateUpdate;
+	}
+	
+	public Calendar getDateMeasurement() {
+		return DateMeasurement;
+	}
+
+	public void setDateMeasurement(Calendar dateMeasurement) {
+		DateMeasurement = dateMeasurement;
 	}
 	
 }

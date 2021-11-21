@@ -45,7 +45,7 @@
 							<li class="nav-item"><a class="nav-link"
 								href="health?action=list">Pressão</a></li>
 							<li class="nav-item"><a class="nav-link"
-								href="#">Peso</a></li>
+								href="weight?action=list">Peso</a></li>
 						</ul>
 					</div>
 				</div>

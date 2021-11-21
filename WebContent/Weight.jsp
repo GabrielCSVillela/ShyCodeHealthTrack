@@ -20,7 +20,7 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<a class="nav-item nav-link active" href="weight.jsp">Listar</a> 
+					<a class="nav-item nav-link active" href=weight?action=list>Listar</a> 
 					<a class="nav-item nav-link" href="register-weight.jsp">Cadastrar</a>
 				</div>
 			</div>
@@ -37,7 +37,7 @@
 			<c:forEach items="${weights }" var="w">
 				<tr>
 					<td>
-						<fmt:formatDate value="${w.date.time}" pattern="dd/MM/yyyy hh:mm" />
+						<fmt:formatDate value="${w.dateMeasurement.time}" pattern="dd/MM/yyyy" />
 					</td>
 					<td>${w.value}</td>
 					<td>	

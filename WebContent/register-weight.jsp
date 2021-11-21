@@ -38,11 +38,11 @@
 		<form action="weight" method="post">
 			<input type="hidden" value="register" name="action">
 			<div class="form-group">
-				<label for="id-nome">Dia da Pesagem</label> <input type="datetime-local"
-					name="time_measurement" id="id-nome" class="form-control" required>
+				<label for="id-nome">Dia da Pesagem</label> <input type="date"
+					name=date_measurement id="id-nome" class="form-control" required>
 			</div>
 			<div class="form-group">
-				<label for="id-quantidade">Peso (kg)</label> <input type="text"
+				<label for="id-quantidade">Peso (kg)</label> <input type="number"
 					name="value" id="id-quantidade" class="form-control" required>
 			</div>
 		

@@ -117,7 +117,7 @@ public class ClientServlet extends HttpServlet {
 			String password = request.getParameter("password");
 			String phone = request.getParameter("phone");
 
-			SimpleDateFormat birthFormat = new SimpleDateFormat("dd/MM/yyyy");
+			SimpleDateFormat birthFormat = new SimpleDateFormat("yyyy-MM-dd");
 			Calendar dateBirth = Calendar.getInstance();
 			dateBirth.setTime(birthFormat.parse(request.getParameter("birthday")));
 
