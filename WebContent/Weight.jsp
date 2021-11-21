@@ -34,6 +34,7 @@
 			<tr>
 				<th>Dia pesagem</th>
 				<th>Peso (kg)</th>
+				<th></th>
 			</tr>
 			<c:forEach items="${weights }" var="w">
 				<tr>

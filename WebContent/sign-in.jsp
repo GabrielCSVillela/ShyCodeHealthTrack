@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Insert title here</title>
+<title>Login - Health Track App</title>
 <link rel="stylesheet" href="resources/css/styles.css">
 <%@ include file="header.jsp"%>
 </head>

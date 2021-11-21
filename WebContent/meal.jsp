@@ -28,19 +28,16 @@
 	</div>
 
 	<h2 style="text-align: center;">Refeições</h2>
-	<div style="width: 100%" class="list-meals">
-		<c:if test="${not empty msg }">
-			<div class="alert alert-success">${msg}</div>
-		</c:if>
-		<c:if test="${not empty erro }">
-			<div class="alert alert-danger">${erro}</div>
-		</c:if>
+	<div style="width: 100%" class="list-restaurants">
+	
 		<table class="table table-striped">
 			<tr>
 				<th>Refeição</th>
 				<th>Calorias</th>
 				<th>Data</th>
+				<th></th>
 			</tr>
+	
 			<c:forEach items="${meals }" var="m">
 				<tr>
 					<td>${m.nameMeal}</td>

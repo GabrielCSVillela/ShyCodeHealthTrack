@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Blood Pressure</title>
+<title>Pressão</title>
 <%@ include file="header.jsp"%>
 </head>
 <%@ include file="menu.jsp"%>
@@ -35,6 +35,7 @@
 				<th>Data e Hora</th>
 				<th>Pressão Min.</th>
 				<th>Pressão Max.</th>
+				<th></th>
 			</tr>
 			<c:forEach items="${bloodPressures }" var="bp">
 				<tr>
