@@ -20,11 +20,13 @@ public class OracleWeightDAO implements WeightDAO {
     
         try {
           connection = ConnectionManager.getInstance().getConnection();
-          String sql = "INSERT INTO TAB_WEIGHT(ID_WEIGHT, VALUE, DATERECORD) VALUES (SQ_WEIGHT.NEXTVAL, ?, ?)";
+          String sql = "INSERT INTO TAB_WEIGHT(ID_WEIGHT, VALUE, DATE_RECORD, DATE_UPDATE) VALUES (SQ_WEIGHT.NEXTVAL, ?, ?, ?)";
           stmt = connection.prepareStatement(sql);
           stmt.setFloat(1, weight.getValue());
-          java.sql.Date date = new java.sql.Date(weight.getDate().getTimeInMillis());
-          stmt.setDate(2, date);
+          java.sql.Date dateRecord = new java.sql.Date(weight.getDateRecord().getTimeInMillis());
+          stmt.setDate(2, dateRecord);
+          java.sql.Date dateUpdate = new java.sql.Date(weight.getDateUpdate().getTimeInMillis());
+          stmt.setDate(2, dateUpdate);
     
           stmt.executeUpdate();
         } catch (SQLException e) {
@@ -51,11 +53,16 @@ public class OracleWeightDAO implements WeightDAO {
 	        while (rs.next()) {
 	          int idWeight = rs.getInt("ID_WEIGHT");
 	          float value = rs.getFloat("VALUE");
-	          java.sql.Date date = rs.getDate("DATE_RECORD");
-	          Calendar dateRecord = Calendar.getInstance();
-	          dateRecord.setTimeInMillis(date.getTime());
 	          
-	          Weight weight = new Weight(idWeight, value, dateRecord);
+	          java.sql.Date timeRecord = rs.getDate("DATE_RECORD");
+	          Calendar dateRecord = Calendar.getInstance();
+	          dateRecord.setTimeInMillis(timeRecord.getTime());
+	          
+	          java.sql.Date timeUpdate = rs.getDate("DATE_UPDATE");
+	          Calendar dateUpdate = Calendar.getInstance();
+	          dateUpdate.setTimeInMillis(timeUpdate.getTime());
+	          
+	          Weight weight = new Weight(idWeight, value, dateRecord, dateUpdate);
 	          
 	          list.add(weight);
 	        }
@@ -79,12 +86,15 @@ public class OracleWeightDAO implements WeightDAO {
         
           try {
         	connection = ConnectionManager.getInstance().getConnection();
-            String sql = "UPDATE TAB_WEIGHT SET VALUE = ?, DATE_RECORD = ? WHERE ID_WEIGHT = ?";
+            String sql = "UPDATE TAB_WEIGHT SET VALUE = ?, DATE_RECORD = ?, DATE_UPDATE = ? WHERE ID_WEIGHT = ?";
             stmt = connection.prepareStatement(sql);
             stmt.setFloat(1, weight.getValue());
-            java.sql.Date dateRecord = new java.sql.Date(weight.getDate().getTimeInMillis());
+            java.sql.Date dateRecord = new java.sql.Date(weight.getDateRecord().getTimeInMillis());
             stmt.setDate(2, dateRecord);
-            stmt.setInt(5, weight.getId());
+            java.sql.Date dateUpdate = new java.sql.Date(weight.getDateUpdate().getTimeInMillis());
+            stmt.setDate(4, dateUpdate);
+            
+            stmt.setInt(4, weight.getId());
         
             stmt.executeUpdate();
           } catch (SQLException e) {
@@ -133,10 +143,15 @@ public class OracleWeightDAO implements WeightDAO {
             if (rs.next()){
               int idWeight = rs.getInt("ID_WEIGHT");
               Float value = rs.getFloat("VALUE");
-              java.sql.Date date = rs.getDate("DATE_RECORD");
+              
+              java.sql.Date timeRecord = rs.getDate("DATE_RECORD");
               Calendar dateRecord = Calendar.getInstance();
-              dateRecord.setTimeInMillis(date.getTime());
-              weight = new Weight(idWeight, value, dateRecord);
+              dateRecord.setTimeInMillis(timeRecord.getTime());
+              
+              java.sql.Date timeUpdate = rs.getDate("DATE_UPDATE");
+              Calendar dateUpdate = Calendar.getInstance();
+              dateRecord.setTimeInMillis(timeUpdate.getTime());
+              weight = new Weight(idWeight, value, dateRecord, dateUpdate);
             }
             
           } catch (SQLException e) {

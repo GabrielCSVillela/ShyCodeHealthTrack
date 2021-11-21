@@ -16,15 +16,20 @@ public class Weight {
 	private float Value;
 	
 	/**
-	 * Data
+	 * Data criacao
 	 */
-	private Calendar Date;
+	private Calendar DateRecord;
+	/**
+	 * Data atualiza��o
+	 */
+	private Calendar DateUpdate;
 	
 	// Construtores
-	public Weight(int id, float value, Calendar date) {
+	public Weight(int id, float value, Calendar dateRecord, Calendar dateUpdate) {
 		Id = 0;
 		Value = value;
-		Date = date;
+		DateRecord = dateRecord;
+		DateUpdate = dateUpdate;
 	}
 	
 	public Weight() {
@@ -40,7 +45,8 @@ public class Weight {
 	public void Remove(){
 		Id = 0;
 		Value = 0;
-		Date = null;
+		DateRecord = null;
+		DateUpdate = null;
 	}
 	
 	public float CalcIMC(float height){
@@ -50,8 +56,16 @@ public class Weight {
 	public float ConsultIMC(){
 		return Value;
 	}
-		
+
 	// Getters e Setters
+	public int getId() {
+		return Id;
+	}
+
+	public void setId(int id) {
+		Id = id;
+	}
+
 	public float getValue() {
 		return Value;
 	}
@@ -60,17 +74,20 @@ public class Weight {
 		Value = value;
 	}
 
-	public Calendar getDate() {
-		return Date;
+	public Calendar getDateRecord() {
+		return DateRecord;
 	}
 
-	public void setDate(Calendar date) {
-		Date = date;
+	public void setDateRecord(Calendar dateRecord) {
+		DateRecord = dateRecord;
 	}
 
-	public int getId() {
-		return Id;
+	public Calendar getDateUpdate() {
+		return DateUpdate;
 	}
-	
+
+	public void setDateUpdate(Calendar dateUpdate) {
+		DateUpdate = dateUpdate;
+	}
 	
 }

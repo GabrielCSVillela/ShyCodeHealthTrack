@@ -17,7 +17,7 @@ import br.com.shycode.healthtrack.exception.DBException;
 import br.com.shycode.healthtrack.factory.DAOFactory;
 
 /**
- * Servlet implementation class HealthServlet
+ * Servlet implementation class WeightServlet
  */
 @WebServlet("/weight")
 public class WeigthServlet extends HttpServlet {
@@ -116,10 +116,12 @@ public class WeigthServlet extends HttpServlet {
 			Calendar timeMeasurement = Calendar.getInstance();
 			timeMeasurement.setTime(timeFormat.parse(request.getParameter("time_measurement")));
 
-			Weight weight = new Weight(idWeight, value, timeMeasurement);
+			Calendar dateUpdate = Calendar.getInstance();
+	
+			Weight weight = new Weight(idWeight, value, timeMeasurement, dateUpdate);
 			daoWeightDAO.update(weight);
 
-			request.setAttribute("msg", "Pressao atualizada!");
+			request.setAttribute("msg", "Peso atualizado!");
 		} catch (DBException db) {
 			db.printStackTrace();
 			request.setAttribute("erro", "Erro ao atualizar");
@@ -140,10 +142,12 @@ public class WeigthServlet extends HttpServlet {
 			Calendar timeMeasurement = Calendar.getInstance();
 			timeMeasurement.setTime(timeFormat.parse(request.getParameter("time_measurement")));
 
-			Weight weight = new Weight(0, value, timeMeasurement);
+			Calendar dateUpdate = Calendar.getInstance();
+		
+			Weight weight = new Weight(0, value, timeMeasurement, dateUpdate);
 			daoWeightDAO.insert(weight);
 
-			request.setAttribute("msg", "Pressao cadastrada!");
+			request.setAttribute("msg", "Peso cadastrado!");
 		} catch (DBException db) {
 			db.printStackTrace();
 			request.setAttribute("erro", "Erro ao cadastrar");
