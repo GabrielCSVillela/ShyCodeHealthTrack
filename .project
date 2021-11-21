@@ -28,16 +28,4 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>WebContent/weight.jsp</name>
-			<type>1</type>
-			<location>C:/Users/gabri/new-eclipse-workspace/HealthTrack/WebContent/Weight.jsp</location>
-		</link>
-		<link>
-			<name>WebContent/resources/css/myprofile.css</name>
-			<type>1</type>
-			<location>C:/Users/gabri/new-eclipse-workspace/HealthTrack/WebContent/resources/css/myprofile.css</location>
-		</link>
-	</linkedResources>
 </projectDescription>
