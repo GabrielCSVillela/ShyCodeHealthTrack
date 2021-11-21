@@ -37,7 +37,7 @@
 						  	<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Saúde
 	    					<span class="caret"></span></button>
 	    					<ul class="dropdown-menu">
-	      						<li class="nav-item"><a class="nav-link" href="#">Pressão</a></li>
+	      						<li class="nav-item"><a class="nav-link" href="health?action=list">Pressão</a></li>
 	      						<li class="nav-item"><a class="nav-link" href="#">Peso</a></li>
 	    					</ul>
 						</div>

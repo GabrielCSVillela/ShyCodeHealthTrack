@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Health</title>
+<title>Blood Pressure</title>
 <%@ include file="header.jsp"%>
 </head>
 <%@ include file="menu.jsp"%>
