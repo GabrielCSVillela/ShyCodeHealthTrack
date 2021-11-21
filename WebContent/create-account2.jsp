@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="resources/css/styles.css">
 <%@ include file="header.jsp"%>
 <title>Insert title here</title>
 </head>

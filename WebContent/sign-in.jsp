@@ -4,10 +4,10 @@
 <html>
 <head>
 <title>Insert title here</title>
+	<link rel="stylesheet" href="resources/css/styles.css">
 <%@ include file="header.jsp"%>
 </head>
 <body class="sign-in">
-
 	<div class="box-sign-in w-50 h-50 rounded"
 		style="background-color: #FFFFFF; padding: 20px; magin: auto;">
 		<form class="form-sign-in ">
