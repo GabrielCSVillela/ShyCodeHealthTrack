@@ -38,7 +38,7 @@
 					</ul>
 					<div class="dropdown">
 						<button class="btn btn-default dropdown-toggle" type="button"
-							data-toggle="dropdown">
+						style="color: rgba(0, 0, 0, 0.55);"	data-toggle="dropdown">
 							Saúde <span class="caret"></span>
 						</button>
 						<ul class="dropdown-menu">
