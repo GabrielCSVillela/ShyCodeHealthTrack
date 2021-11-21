@@ -98,7 +98,7 @@ public class MealServlet extends HttpServlet {
 		int idMeal = Integer.parseInt(request.getParameter("id"));
 		try {
 			daoMeal.delete(idMeal);
-			request.setAttribute("msg", "RefeiÃ§Ã£o removida!");
+			request.setAttribute("msg", "Refeição removida!");
 		} catch (DBException e) {
 			e.printStackTrace();
 			request.setAttribute("erro", "Erro ao excluir");
@@ -117,7 +117,7 @@ public class MealServlet extends HttpServlet {
 			Meal meal = new Meal(idMeal, nameMeal, calorie, dateUpdate);
 			daoMeal.update(meal);
 
-			request.setAttribute("msg", "RefeiÃ§Ã£o atualizada!");
+			request.setAttribute("msg", "Refeição atualizada!");
 		} catch (DBException db) {
 			db.printStackTrace();
 			request.setAttribute("erro", "Erro ao atualizar");
@@ -142,7 +142,7 @@ public class MealServlet extends HttpServlet {
 			Meal meal = new Meal(0, nameMeal, calorie, dateRecord, dateUpdate);
 			daoMeal.insert(meal);
 
-			request.setAttribute("msg", "RefeiÃ§Ã£o cadastrada!");
+			request.setAttribute("msg", "Refeição cadastrada!");
 		} catch (DBException db) {
 			db.printStackTrace();
 			request.setAttribute("erro", "Erro ao cadastrar");

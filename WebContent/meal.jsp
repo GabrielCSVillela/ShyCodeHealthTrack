@@ -77,7 +77,7 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<div class="modal-body">Deseja realmente excluir o produto?</div>
+				<div class="modal-body">Deseja realmente excluir?</div>
 				<div class="modal-footer">
 					<form action="meal" method="post">
 						<input type="hidden" name="action" value="delete"> <input
