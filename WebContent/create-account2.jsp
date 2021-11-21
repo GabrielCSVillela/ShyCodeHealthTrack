@@ -61,15 +61,7 @@
 					required>
 			</div>
 		</div>
-		<div class="form-group">
-			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value=""
-					id="invalidCheck2" required> <label
-					class="form-check-label" for="invalidCheck2"> Agree to
-					terms and conditions </label>
-			</div>
-		</div>
-		<div class="create-account-button" style="text-align:center;">
+		<div class="create-account-button pt-3" style="text-align:center;">
 		<button class="btn btn-primary border-white" type="submit" style="background-color: #0C7797; color: #A3E1D2;" >Criar Conta</button>
 		<a class="btn btn-secondary border-white" href="sign-in.jsp" style="background-color: #A3E1D2; color: #0C7797;" >Já tenho uma conta</a>
 		</div>

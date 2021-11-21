@@ -80,16 +80,12 @@
 							<div class="dropdown-menu"
 								aria-labelledby="navbarDropdownMenuLink">
 								<a class="dropdown-item" href="myprofile.jsp">Editar perfil</a> 
-								<a class="dropdown-item border-top" href="sign-in.jsp">Sair</a>
+								<a class="dropdown-item border-top" href="login">Sair</a>
 							</div></li>
 					</ul>
 				</div>
 			</nav>
 
-			<!--  <span class="navbar-text">
-				<a href="myprofile.jsp"
-					class="btn btn-outline-primary my-2 my-sm-0">Meu Perfil</a>
-				</span>-->
 		</header>
 	</div>
 </body>

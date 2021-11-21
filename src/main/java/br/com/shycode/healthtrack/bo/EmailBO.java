@@ -14,8 +14,8 @@ import br.com.shycode.healthtrack.exception.EmailException;
 public class EmailBO {
 
 	public void enviarEmail(String destinatario, String assunto, String mensagem) throws EmailException{
-		final String username = "email@gmail.com";
-		final String password = "senha";
+		final String username = "teste";
+		final String password = "123456";
 
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");

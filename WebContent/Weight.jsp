@@ -51,7 +51,6 @@
 			</c:forEach>
 		</table>
 	</div>
-
 	<div class="footer-sub-pages"
 		style="position: absolute; bottom: 0; width: 100%;">
 		<%@ include file="footer.jsp"%>
@@ -78,6 +77,7 @@
 							data-dismiss="modal">Cancelar</button>
 						<button type="submit" class="btn btn-danger">Excluir</button>
 					</form>
+
 				</div>
 			</div>
 		</div>
