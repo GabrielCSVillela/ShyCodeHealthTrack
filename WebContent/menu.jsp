@@ -29,9 +29,18 @@
 							href="activity?action=list">Atividade</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="meal?action=list">Alimentação</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="health?action=list">Saúde</a></li>
-					</ul>
+						<!--  <li class="nav-item">
+							<a class="nav-link" href="health?action=list">Saúde</a>
+						</li> -->
+						</ul>
+						<div class="dropdown">
+						  	<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Saúde
+	    					<span class="caret"></span></button>
+	    					<ul class="dropdown-menu">
+	      						<li class="nav-item"><a class="nav-link" href="#">Pressão</a></li>
+	      						<li class="nav-item"><a class="nav-link" href="#">Peso</a></li>
+	    					</ul>
+						</div>
 				</div>
 			</nav>
 
