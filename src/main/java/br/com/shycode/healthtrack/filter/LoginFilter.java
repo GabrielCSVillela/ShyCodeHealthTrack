@@ -11,7 +11,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-@WebFilter()
+@WebFilter("/*")
 public class LoginFilter implements Filter {
 
 	@Override
@@ -23,7 +23,7 @@ public class LoginFilter implements Filter {
 		String url = req.getRequestURI();
 
 		if (session.getAttribute("user") == null && !url.endsWith("sign-in") && !url.endsWith("login")
-				&& !url.contains("create-account") && !url.contains("home") && !url.contains("resourses")) {
+				&& !url.contains("create-account") && !url.contains("resourses")) {
 			request.setAttribute("erro", "Entre com o usuário e senha!");
 			request.getRequestDispatcher("sign-in.jsp").forward(request, response);
 		} else {
