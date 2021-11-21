@@ -5,6 +5,7 @@
 <head>
 <title>Home</title>
 <%@ include file="header.jsp"%>
+
 </head>
 <body>
 <%@ include file="menu.jsp"%>
