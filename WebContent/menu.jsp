@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="resources/css/styles.css">
-	<link rel="stylesheet" href="resources/css/bootstrap.css">
+<link rel="stylesheet" href="resources/css/styles.css">
+<link rel="stylesheet" href="resources/css/bootstrap.css">
 </head>
 <body>
 	<div class="container-fluid">
@@ -35,15 +35,19 @@
 						<!--  <li class="nav-item">
 							<a class="nav-link" href="health?action=list">Saúde</a>
 						</li> -->
+					</ul>
+					<div class="dropdown">
+						<button class="btn btn-default dropdown-toggle" type="button"
+							data-toggle="dropdown">
+							Saúde <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li class="nav-item"><a class="nav-link"
+								href="health?action=list">Pressão</a></li>
+							<li class="nav-item"><a class="nav-link"
+								href="#">Peso</a></li>
 						</ul>
-						<div class="dropdown">
-						  	<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Saúde
-	    					<span class="caret"></span></button>
-	    					<ul class="dropdown-menu">
-	      						<li class="nav-item"><a class="nav-link" href="health?action=list">Pressão</a></li>
-	      						<li class="nav-item"><a class="nav-link" href="weight?action=list">Peso</a></li>
-	    					</ul>
-						</div>
+					</div>
 				</div>
 			</nav>
 
@@ -58,11 +62,34 @@
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Entrar</button>
 				</form>
 			</c:if>-->
-	
-				<span class="navbar-text">
+			<nav class="navbar navbar-expand-sm">
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbar-list-4" aria-controls="navbarNav"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbar-list-4">
+					<ul class="navbar-nav">
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#"
+							id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false"> <img
+								src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
+								width="40" height="40" class="rounded-circle border border-dark">
+						</a>
+							<div class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink">
+								<a class="dropdown-item" href="myprofile.jsp">Editar perfil</a> 
+								<a class="dropdown-item border-top" href="sign-in.jsp">Sair</a>
+							</div></li>
+					</ul>
+				</div>
+			</nav>
+
+			<!--  <span class="navbar-text">
 				<a href="myprofile.jsp"
 					class="btn btn-outline-primary my-2 my-sm-0">Meu Perfil</a>
-				</span>
+				</span>-->
 		</header>
 	</div>
 </body>

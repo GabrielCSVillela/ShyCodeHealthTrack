@@ -71,7 +71,9 @@
 		</div>
 		<div class="create-account-button" style="text-align:center;">
 		<button class="btn btn-primary" type="submit" >Criar Conta</button>
+		<a class="btn btn-secondary" href="sign-in.jsp" >Já tenho uma conta</a>
 		</div>
+		
 	</form>
 	<%@ include file="footer-sign-in.jsp"%>
 </div>

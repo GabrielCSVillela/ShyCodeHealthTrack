@@ -15,6 +15,8 @@ public class Weight {
 	 */
 	private float Value;
 	
+	
+	
 	/**
 	 * Data criacao
 	 */
@@ -31,30 +33,16 @@ public class Weight {
 		DateRecord = dateRecord;
 		DateUpdate = dateUpdate;
 	}
+
+	public Weight(int id, float value, Calendar dateUpdate) {
+		super();
+		Id = id;
+		Value = value;
+		DateUpdate = dateUpdate;
+	}
 	
 	public Weight() {
 		super();
-	}
-
-
-	// M�todos
-	public void Register(){
-		Id = 1;
-	}
-	
-	public void Remove(){
-		Id = 0;
-		Value = 0;
-		DateRecord = null;
-		DateUpdate = null;
-	}
-	
-	public float CalcIMC(float height){
-		return  Value / (height * Value);
-	}
-	
-	public float ConsultIMC(){
-		return Value;
 	}
 
 	// Getters e Setters
