@@ -8,8 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body class="create-account">
-<div>
-	<h2 class="title">Crie sua conta</h2>
+<div class="box-create-account w-50 h-75 rounded" style="background-color: #FFFFFF; padding:20px; magin:auto;">
+	<h2 class="title" style="text-align: center">Crie sua conta</h2>
 	<c:if test="${not empty msg }">
 		<div class="alert alert-success">${msg}</div>
 	</c:if>
@@ -20,12 +20,12 @@
 	<input type="hidden" value="register" name="action">
 		<div class="form-row">
 			<div class="">
-				<label for="validationDefault01">First name</label> <input
+				<label for="validationDefault01">Primeiro nome</label> <input
 					type="text" class="form-control" id="validationDefault01"
 					placeholder="Primeiro nome" name="first_name" required>
 			</div>
 			<div class="">
-				<label for="validationDefault02">Last name</label> <input
+				<label for="validationDefault02">Sobrenome</label> <input
 					type="text" class="form-control" id="validationDefault02"
 					placeholder="Sobrenome" name="last_name" required>
 			</div>
@@ -68,7 +68,9 @@
 					terms and conditions </label>
 			</div>
 		</div>
-		<button class="btn btn-primary" type="submit">Criar Conta</button>
+		<div class="create-account-button" style="text-align:center;">
+		<button class="btn btn-primary" type="submit" >Criar Conta</button>
+		</div>
 	</form>
 	<%@ include file="footer-sign-in.jsp"%>
 </div>
