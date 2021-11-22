@@ -17,7 +17,8 @@
 						<div class="col-lg-3 order-lg-2">
 							<div class="card-profile-image">
 								<a href="#"> <img width="200px" style="margin-top: 15px"
-									height="200px" src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
+									height="200px"
+									src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
 									class="rounded-circle">
 								</a>
 							</div>
@@ -77,98 +78,100 @@
 						</div>
 					</div>
 					<div class="card-body">
-						<form>
-							<h6 class="heading-small text-muted mb-4">User information</h6>
-							<div class="pl-lg-4">
-								<div class="row">
-									<div class="col-lg-6">
-										<div class="form-group focused">
-											<label class="form-control-label" for="input-username">Nome
-												do usuário</label> <input type="text" id="input-username"
-												class="form-control form-control-alternative"
-												placeholder="Username" value="Guilherme.Alves">
-										</div>
-									</div>
-									<div class="col-lg-6">
-										<div class="form-group">
-											<label class="form-control-label" for="input-email">Email</label>
-											<input type="email" id="input-email"
-												class="form-control form-control-alternative"
-												placeholder="guilherme@gmail.com">
-										</div>
+						<form class ="form-profile" action="client" method="post">
+						<input type="hidden" value="update" name="action"> 
+						<input type="hidden" value="${client.id}" name="id">
+						<h6 class="heading-small text-muted mb-4">User information</h6>
+						<div class="pl-lg-4">
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="form-group focused">
+										<label class="form-control-label" for="input-username">Nome
+											do usuário</label> <input type="text" id="input-username"
+											class="form-control form-control-alternative"
+											placeholder="Username" value="${client.name}">
 									</div>
 								</div>
-								<div class="row">
-									<div class="col-lg-6">
-										<div class="form-group focused">
-											<label class="form-control-label" for="input-first-name">Primeiro
-												Nome</label> <input type="text" id="input-first-name"
-												class="form-control form-control-alternative"
-												placeholder="Primeiro Nome" value="Guilherme">
-										</div>
-									</div>
-									<div class="col-lg-6">
-										<div class="form-group focused">
-											<label class="form-control-label" for="input-last-name">Sobrenome</label>
-											<input type="text" id="input-last-name"
-												class="form-control form-control-alternative"
-												placeholder="Sobrenome" value="Alves">
-										</div>
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label class="form-control-label" for="input-email">Email</label>
+										<input type="email" id="input-email"
+											class="form-control form-control-alternative"
+											placeholder="guilherme@gmail.com" value="${client.email}">
 									</div>
 								</div>
 							</div>
-							<hr class="my-4">
-							<!-- Address -->
-							<h6 class="heading-small text-muted mb-4">Endereço</h6>
-							<div class="pl-lg-4">
-								<div class="row">
-									<div class="col-md-12">
-										<div class="form-group focused">
-											<label class="form-control-label" for="input-address">Logradouro
-												full</label> <input id="input-address"
-												class="form-control form-control-alternative"
-												placeholder="Home Address"
-												value="Minha casa, na rua tal, no numero 666" type="text">
-										</div>
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="form-group focused">
+										<label class="form-control-label" for="input-first-name">Primeiro
+											Nome</label> <input type="text" id="input-first-name"
+											class="form-control form-control-alternative"
+											placeholder="Primeiro Nome" value="${client.name}">
 									</div>
 								</div>
-								<div class="row">
-									<div class="col-lg-4">
-										<div class="form-group focused">
-											<label class="form-control-label" for="input-city">Cidade</label>
-											<input type="text" id="input-city"
-												class="form-control form-control-alternative"
-												placeholder="City" value="São Paulo">
-										</div>
-									</div>
-									<div class="col-lg-4">
-										<div class="form-group focused">
-											<label class="form-control-label" for="input-country">Estado</label>
-											<input type="text" id="input-country"
-												class="form-control form-control-alternative"
-												placeholder="Country" value="São Paulo">
-										</div>
-									</div>
-									<div class="col-lg-4">
-										<div class="form-group">
-											<label class="form-control-label" for="input-country">Cep</label>
-											<input type="number" id="input-postal-code"
-												class="form-control form-control-alternative"
-												placeholder="Cep" value="05266130">
-										</div>
+								<div class="col-lg-6">
+									<div class="form-group focused">
+										<label class="form-control-label" for="input-last-name">Sobrenome</label>
+										<input type="text" id="input-last-name"
+											class="form-control form-control-alternative"
+											placeholder="Sobrenome" value="${client.lastName}">
 									</div>
 								</div>
 							</div>
-							<hr class="my-4">
-							<!-- Description -->
-							<h6 class="heading-small text-muted mb-4">Mais informações</h6>
-							<div class="pl-lg-4">
-								<div class="form-group focused">
-									<label>Descrição</label>
-									<textarea rows="4"
-										class="form-control form-control-alternative">Preciso ganhar peso é isso familia</textarea>
+						</div>
+						<hr class="my-4">
+						<!-- Address -->
+						<h6 class="heading-small text-muted mb-4">Endereço</h6>
+						<div class="pl-lg-4">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group focused">
+										<label class="form-control-label" for="input-address">Logradouro
+											full</label> <input id="input-address"
+											class="form-control form-control-alternative"
+											placeholder="Home Address"
+											value="Minha casa, na rua tal, no numero 666" type="text">
+									</div>
 								</div>
 							</div>
+							<div class="row">
+								<div class="col-lg-4">
+									<div class="form-group focused">
+										<label class="form-control-label" for="input-city">Cidade</label>
+										<input type="text" id="input-city"
+											class="form-control form-control-alternative"
+											placeholder="City" value="São Paulo">
+									</div>
+								</div>
+								<div class="col-lg-4">
+									<div class="form-group focused">
+										<label class="form-control-label" for="input-country">Estado</label>
+										<input type="text" id="input-country"
+											class="form-control form-control-alternative"
+											placeholder="Country" value="São Paulo">
+									</div>
+								</div>
+								<div class="col-lg-4">
+									<div class="form-group">
+										<label class="form-control-label" for="input-country">Cep</label>
+										<input type="number" id="input-postal-code"
+											class="form-control form-control-alternative"
+											placeholder="Cep" value="05266130">
+									</div>
+								</div>
+							</div>
+						</div>
+						<hr class="my-4">
+						<!-- Description -->
+						<h6 class="heading-small text-muted mb-4">Mais informações</h6>
+						<div class="pl-lg-4">
+							<div class="form-group focused">
+								<label>Descrição</label>
+								<textarea rows="4" class="form-control form-control-alternative">Preciso ganhar peso é isso familia</textarea>
+							</div>
+						</div>
+						<input type="submit" value="Salvar" class="btn btn-primary">
 						</form>
 					</div>
 				</div>

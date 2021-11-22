@@ -17,6 +17,8 @@ public interface ClientDAO {
 
 	Client selectById(int idSearch);
 	
+	Client selectByEmail(String emailSearch);
+	
 	boolean validateClient(Client client);
 
 }

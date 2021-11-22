@@ -37,7 +37,7 @@
 			</form>
 		</c:if>
 		<c:if test="${not empty user }" >
-			<c:redirect url="home.jsp"/>
+			<c:redirect url="client?action=list"/>
 		</c:if>
 	</div>
 	<%@ include file="footer-sign-in.jsp"%>

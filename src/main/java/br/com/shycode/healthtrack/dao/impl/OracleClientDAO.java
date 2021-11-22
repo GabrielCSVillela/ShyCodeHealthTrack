@@ -78,10 +78,6 @@ public class OracleClientDAO implements ClientDAO {
 				Calendar timeRecord = Calendar.getInstance();
 				timeRecord.setTimeInMillis(dateRecord.getTime());
 
-//          java.sql.Date dateUpdate = rs.getDate("DATE_UPDATE");
-//          Calendar timeUpdate = Calendar.getInstance();
-//          timeUpdate.setTimeInMillis(dateUpdate.getTime());
-
 				Client client = new Client(idClient, name, lastName, email, password, phone, timeBirth, height,
 						timeRecord);
 
@@ -188,10 +184,6 @@ public class OracleClientDAO implements ClientDAO {
 				Calendar timeRecord = Calendar.getInstance();
 				timeRecord.setTimeInMillis(dateRecord.getTime());
 
-//        java.sql.Date dateUpdate = rs.getDate("DATE_UPDATE");
-//        Calendar timeUpdate = Calendar.getInstance();
-//        timeUpdate.setTimeInMillis(dateUpdate.getTime());
-
 				client = new Client(idClient, name, lastName, email, password, phone, timeBirth, height, timeRecord);
 			}
 
@@ -235,6 +227,51 @@ public class OracleClientDAO implements ClientDAO {
 			}
 		}
 		return false;
+	}
+	
+	public Client selectByEmail(String emailSearch) {
+		Client client = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			connection = ConnectionManager.getInstance().getConnection();
+			stmt = connection.prepareStatement("SELECT * FROM TAB_CLIENT WHERE EMAIL = ?");
+			stmt.setString(1, emailSearch);
+			rs = stmt.executeQuery();
+
+			if (rs.next()) {
+				int idClient = rs.getInt("ID_CLIENT");
+				String name = rs.getString("NAME");
+				String lastName = rs.getString("LAST_NAME");
+				String email = rs.getString("EMAIL");
+				String password = rs.getString("PASSWORD");
+				String phone = rs.getString("PHONE");
+
+				java.sql.Date dateBirth = rs.getDate("DATE_OF_BIRTH");
+				Calendar timeBirth = Calendar.getInstance();
+				timeBirth.setTimeInMillis(dateBirth.getTime());
+
+				int height = rs.getInt("HEIGHT");
+
+				java.sql.Date dateRecord = rs.getDate("DATE_RECORD");
+				Calendar timeRecord = Calendar.getInstance();
+				timeRecord.setTimeInMillis(dateRecord.getTime());
+
+				client = new Client(idClient, name, lastName, email, password, phone, timeBirth, height, timeRecord);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+				rs.close();
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return client;
 	}
 
 }

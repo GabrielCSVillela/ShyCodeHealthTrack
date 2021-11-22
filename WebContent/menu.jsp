@@ -79,7 +79,7 @@
 						</a>
 							<div class="dropdown-menu"
 								aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" href="myprofile.jsp">Editar perfil</a> 
+								<a class="dropdown-item" href="client?action=open-form-update">Editar perfil</a> 
 								<a class="dropdown-item border-top" href="login">Sair</a>
 							</div></li>
 					</ul>
