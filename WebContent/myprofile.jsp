@@ -47,14 +47,8 @@
 						</div>
 						<div class="text-center">
 							<h3>
-								Guilherme Alves<span class="font-weight-light">, 20</span>
+								HealthTrack<span class="font-weight-light"></span>
 							</h3>
-							<div class="h5 font-weight-300">
-								<i class="ni location_pin mr-2"></i>São Paulo, Brasil
-							</div>
-							<div class="h5 mt-4">
-								<i class="ni business_briefcase-24 mr-2"></i>
-							</div>
 
 							<hr class="my-4">
 						</div>
@@ -85,7 +79,7 @@
 										<label class="form-control-label" for="input-username">Nome
 											do usuário</label> <input type="text" id="input-username"
 											class="form-control form-control-alternative"
-											placeholder="Username" value="${client.name}">
+											placeholder="Username" value="${client.name}" disabled>
 									</div>
 								</div>
 								<div class="col-lg-6">
@@ -93,7 +87,7 @@
 										<label class="form-control-label" for="input-email">Email</label>
 										<input type="email" id="input-email"
 											class="form-control form-control-alternative"
-											placeholder="guilherme@gmail.com" value="${client.email}">
+											placeholder="guilherme@gmail.com" value="${client.email}" disabled>
 									</div>
 								</div>
 							</div>
@@ -103,7 +97,7 @@
 										<label class="form-control-label" for="input-first-name">Primeiro
 											Nome</label> <input type="text" id="input-first-name"
 											class="form-control form-control-alternative"
-											placeholder="Primeiro Nome" value="${client.name}">
+											placeholder="Primeiro Nome" value="${client.name}" disabled>
 									</div>
 								</div>
 								<div class="col-lg-6">
@@ -111,7 +105,7 @@
 										<label class="form-control-label" for="input-last-name">Sobrenome</label>
 										<input type="text" id="input-last-name"
 											class="form-control form-control-alternative"
-											placeholder="Sobrenome" value="${client.lastName}">
+											placeholder="Sobrenome" value="${client.lastName}" disabled>
 									</div>
 								</div>
 							</div>
@@ -127,7 +121,7 @@
 											full</label> <input id="input-address"
 											class="form-control form-control-alternative"
 											placeholder="Home Address"
-											value="Minha casa, na rua tal, no numero 666" type="text">
+											value="" type="text" disabled>
 									</div>
 								</div>
 							</div>
@@ -137,7 +131,7 @@
 										<label class="form-control-label" for="input-city">Cidade</label>
 										<input type="text" id="input-city"
 											class="form-control form-control-alternative"
-											placeholder="City" value="São Paulo">
+											placeholder="City" value="" disabled>
 									</div>
 								</div>
 								<div class="col-lg-4">
@@ -145,7 +139,7 @@
 										<label class="form-control-label" for="input-country">Estado</label>
 										<input type="text" id="input-country"
 											class="form-control form-control-alternative"
-											placeholder="Country" value="São Paulo">
+											placeholder="Country" value="" disabled>
 									</div>
 								</div>
 								<div class="col-lg-4">
@@ -153,7 +147,7 @@
 										<label class="form-control-label" for="input-country">Cep</label>
 										<input type="number" id="input-postal-code"
 											class="form-control form-control-alternative"
-											placeholder="Cep" value="05266130">
+											placeholder="Cep" value="" disabled>
 									</div>
 								</div>
 							</div>
@@ -164,10 +158,9 @@
 						<div class="pl-lg-4">
 							<div class="form-group focused">
 								<label>Descrição</label>
-								<textarea rows="4" class="form-control form-control-alternative">Preciso ganhar peso é isso familia</textarea>
+								<textarea rows="4" class="form-control form-control-alternative"></textarea>
 							</div>
 						</div>
-						<input type="submit" value="Salvar" class="btn btn-primary">
 						</form>
 					</div>
 				</div>
