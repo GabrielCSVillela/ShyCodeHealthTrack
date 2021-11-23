@@ -10,7 +10,7 @@
 </head>
 <%@ include file="menu.jsp"%>
 <body>
-	<div class="container">
+	<div class="container" style="height: 51vh;">
 		<h1>Cadastro de Atividade</h1>
 		<c:if test="${not empty msg }">
 			<div class="alert alert-success">${msg}</div>
