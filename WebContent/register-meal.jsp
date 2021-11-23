@@ -9,7 +9,8 @@
 </head>
 <%@ include file="menu.jsp"%>
 <body>
-	<div class="container">
+	<div class="container" style="height: 51vh;">
+	
 		<div class="container">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -26,6 +27,7 @@
 				</div>
 			</nav>
 		</div>
+		
 		<h2>Cadastro de Refeição</h2>
 		<c:if test="${not empty msg }">
 			<div class="alert alert-success">${msg}</div>
