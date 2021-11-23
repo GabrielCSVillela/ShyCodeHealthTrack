@@ -71,14 +71,14 @@
 							<div class="col-8">
 								<h3 class="mb-0">Meu Perfil</h3>
 							</div>
-							<div class="col-4 text-right">
+							<div class="col-4 text-right" style="text-align: right;">
 								<a href="#!" class="btn btn-sm btn-primary">Detalhes</a>
 							</div>
 						</div>
 					</div>
 					<div class="card-body">
 						<form>
-							<h6 class="heading-small text-muted mb-4">User information</h6>
+							<h6 class="heading-small text-muted mb-4">Informações do Usuário</h6>
 							<div class="pl-lg-4">
 								<div class="row">
 									<div class="col-lg-6">

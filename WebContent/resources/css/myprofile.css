@@ -742,33 +742,6 @@ btn-primary:hover {
 
 .dropdown {
   position: relative;
-}
-
-.dropdown-menu {
-  font-size: 1rem;
-  position: absolute;
-  z-index: 1000;
-  top: 100%;
-  left: 0;
-  display: none;
-  float: left;
-  min-width: 10rem;
-  margin: .125rem 0 0;
-  padding: .5rem 0;
-  list-style: none;
-  text-align: left;
-  color: #525f7f;
-  border: 0 solid rgba(0, 0, 0, .15);
-  border-radius: .4375rem;
-  background-color: #fff;
-  background-clip: padding-box;
-  box-shadow: 0 50px 100px rgba(50, 50, 93, .1), 0 15px 35px rgba(50, 50, 93, .15), 0 5px 15px rgba(0, 0, 0, .1);
-}
-
-.dropdown-menu.show {
-  display: block;
-  opacity: 1;
-}
 
 .dropdown-menu-right {
   right: 0;
