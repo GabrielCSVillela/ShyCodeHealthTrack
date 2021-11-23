@@ -56,7 +56,6 @@
 							</div>
 
 							<hr class="my-4">
-							<p>Adora fazer exercicios escutando uma boa musica :)</p>
 						</div>
 					</div>
 				</div>
