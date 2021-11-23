@@ -33,16 +33,13 @@
 								<div
 									class="card-profile-stats d-flex justify-content-center mt-md-5">
 									<div>
-										<span class="heading">6</span> <span class="description">Atividades
-											feitas</span>
+										<span class="heading"></span> 
 									</div>
 									<div>
-										<span class="heading">4</span> <span class="description">Atividades
-											pendentes</span>
+										<span class="heading"></span> 
 									</div>
 									<div>
-										<span class="heading">10</span> <span class="description">Total
-											de atividades</span>
+										<span class="heading"></span> 
 									</div>
 								</div>
 							</div>
