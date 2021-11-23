@@ -3,13 +3,13 @@ package br.com.shycode.healthtrack.controller;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.shycode.healthtrack.bean.Client;
 import br.com.shycode.healthtrack.dao.ClientDAO;
@@ -55,16 +55,20 @@ public class ClientServlet extends HttpServlet {
 	}
 
 	private void list(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Client> list = daoClient.select();
-		request.setAttribute("clients", list);
-		request.getRequestDispatcher("??.jsp").forward(request, response);
+		HttpSession session = request.getSession();
+		String emailClient = (String) session.getAttribute("user");
+		Client client = daoClient.selectByEmail(emailClient);
+		request.setAttribute("client", client);
+		request.getRequestDispatcher("home.jsp").forward(request, response);
 	}
 
 	private void openFormUpdate(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int idClient = Integer.parseInt(request.getParameter("id"));
-		Client client = daoClient.selectById(idClient);
+		HttpSession session = request.getSession();
+		String emailClient = (String) session.getAttribute("user");
+		Client client = daoClient.selectByEmail(emailClient);
 		request.setAttribute("client", client);
+		request.getRequestDispatcher("myprofile.jsp").forward(request, response);
 	}
 
 	private void openFormRegister(HttpServletRequest request, HttpServletResponse response)
