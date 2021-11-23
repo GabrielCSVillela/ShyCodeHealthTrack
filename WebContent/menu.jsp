@@ -11,6 +11,7 @@
 	<div class="container-fluid">
 		<header
 			class="d-flex justify-content-around align-items-center border-bottom">
+
 			<!-- Logo e nome healthtrack -->
 			<div class="pl-5">
 				<nav class="navbar navbar-light bg-light">
@@ -22,7 +23,8 @@
 					</div>
 				</nav>
 			</div>
-			<!-- Navbar side burguer -->
+
+
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 				<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -32,13 +34,10 @@
 							href="activity?action=list">Atividade</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="meal?action=list">Alimentação</a></li>
-						<!--  <li class="nav-item">
-							<a class="nav-link" href="health?action=list">Saúde</a>
-						</li> -->
 					</ul>
 					<div class="dropdown">
 						<button class="btn btn-default dropdown-toggle" type="button"
-						style="color: rgba(0, 0, 0, 0.55);"	data-toggle="dropdown">
+							style="color: rgba(0, 0, 0, 0.55);" data-toggle="dropdown">
 							Saúde <span class="caret"></span>
 						</button>
 						<ul class="dropdown-menu">
@@ -51,17 +50,6 @@
 				</div>
 			</nav>
 
-			<!-- Usuario e drop down para opcoes -->
-			<!--<c:if test="${empty user }">
-				<span class="navbar-text text-danger" style="margin-right: 10px">
-					${erro } </span>
-				<form class="form-inline my-2 my-lg-0" action="login" method="post">
-					<input class="form-control mr-sm-2" type="text" name="email"
-						placeholder="E-mail"> <input class="form-control mr-sm-2"
-						type="password" name="password" placeholder="Senha">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Entrar</button>
-				</form>
-			</c:if>-->
 			<nav class="navbar navbar-expand-sm">
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbar-list-4" aria-controls="navbarNav"
@@ -79,8 +67,8 @@
 						</a>
 							<div class="dropdown-menu"
 								aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" href="client?action=open-form-update">Editar perfil</a> 
-								<a class="dropdown-item border-top" href="login">Sair</a>
+								<a class="dropdown-item" href="client?action=open-form-update">Editar
+									perfil</a> <a class="dropdown-item border-top" href="login">Sair</a>
 							</div></li>
 					</ul>
 				</div>

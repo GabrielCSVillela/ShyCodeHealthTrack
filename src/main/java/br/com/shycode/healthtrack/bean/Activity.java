@@ -39,15 +39,16 @@ public class Activity {
 	 * Data Atualiza��o
 	 */
 	private Calendar DateUpdate;
+	
 
 	// Construtores
-	public Activity(int id, String name, int calorie, Calendar startTime, Calendar endTime, Calendar dateRecord) {
+	public Activity(int id, String name, int calorie, Calendar startTime, Calendar endTime, Calendar dateUpdate) {
 		IdActivity = id;
 		Name = name;
 		Calorie = calorie;
 		StartTime = startTime;
 		EndTime = endTime;
-		DateRecord = dateRecord;
+		DateUpdate = dateUpdate;
 	}
 
 	/**
@@ -71,6 +72,8 @@ public class Activity {
 		DateRecord = dateRecord;
 		DateUpdate = dateUpdate;
 	}
+
+
 
 	public Activity() {
 		super();
@@ -128,5 +131,5 @@ public class Activity {
 	public void setDateUpdate(Calendar dateUpdate) {
 		DateUpdate = dateUpdate;
 	}
-
+	
 }
